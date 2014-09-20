@@ -1,7 +1,16 @@
+# coding: utf-8
+
+require "gemoji"
+
 class String
   def twidth
+    # ❤️ is not correctly handled...
     chars.inject(0) do |result, c|
       if c.ord <= 126
+        result += 1
+      elsif %w{ • é · }.include?(c)
+        result += 1
+      elsif Emoji.find_by_unicode(c)
         result += 1
       else
         result += 2
