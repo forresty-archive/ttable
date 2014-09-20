@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require "httparty"
+require "ttable"
+
+API_ENDPOINT="http://api.ohsame.com/v2.1.0"
+
+def table_of_channel_list(response, name)
+  Terminal::Table.new do |table|
+    table.rows = response[name].map { |i| [i['channel_id'], i['cate'], i['title'] || i['name']] }
+  end
+end
+
+def get(path)
+  HTTParty.get(API_ENDPOINT + path)
+end
+
+puts table_of_channel_list(get('/discovery'), 'kv')
