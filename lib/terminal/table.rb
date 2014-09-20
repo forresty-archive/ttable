@@ -4,7 +4,7 @@ require "gemoji"
 
 class String
   def twidth
-    # ❤️ is not correctly handled...
+    # ❤️ is not correctly handled yet, since it is 2 characters
     chars.inject(0) do |result, c|
       if c.ord <= 126
         result += 1
