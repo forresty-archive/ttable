@@ -4,11 +4,8 @@ require "gemoji"
 
 class String
   def twidth
-    # ❤️ is not correctly handled yet, since it is 2 characters
-    result = 0
-    if include?('❤️')
-      result = -3
-    end
+    # ❤️ is 2 characters
+    result = -3 * scan('❤️').size
 
     chars.inject(result) do |result, c|
       if c.ord <= 126
