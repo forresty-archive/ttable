@@ -5,7 +5,12 @@ require "gemoji"
 class String
   def twidth
     # ❤️ is not correctly handled yet, since it is 2 characters
-    chars.inject(0) do |result, c|
+    result = 0
+    if include?('❤️')
+      result = -3
+    end
+
+    chars.inject(result) do |result, c|
       if c.ord <= 126
         result += 1
       elsif %w{ • é · ♪ }.include?(c)
@@ -40,8 +45,10 @@ module Terminal
     end
 
     def recalculate_column_widths!
-      (0...@rows.first.size).each do |col|
-        @column_widths[col] = @rows.map { |row| row[col].to_s.twidth }.max
+      if @rows.count > 0
+        (0...@rows.first.size).each do |col|
+          @column_widths[col] = @rows.map { |row| row[col].to_s.twidth }.max
+        end
       end
     end
 
