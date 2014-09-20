@@ -32,10 +32,12 @@ end
 module Terminal
   class Table
     attr_accessor :rows
+    attr_accessor :headings
     attr_accessor :column_widths
 
     def initialize
       @rows = []
+      @headings = []
       @column_widths = []
       yield self if block_given?
       recalculate_column_widths!
@@ -47,15 +49,33 @@ module Terminal
           @column_widths[col] = @rows.map { |row| row[col].to_s.twidth }.max
         end
       end
+
+      if @headings.count > 0
+        (0...@headings.size).each do |col|
+          @column_widths[col] = [@column_widths[col], @headings[col].twidth].max
+        end
+      end
     end
 
     def to_s
+      result = ''
+
       header_and_footer = '+' + @column_widths.map { |w| '-' * (w + 2) }.join('+') + '+' + "\n"
 
-      result = header_and_footer
+      if @headings.count > 0
+        result += header_and_footer
+
+        content = @headings.each_with_index.map { |grid, i| grid.to_s.tljust(@column_widths[i]) }
+
+        result += '| ' + content.join(' | ') + " |\n"
+      end
+
+      result += header_and_footer
 
       @rows.each do |row|
-        result += '| ' + row.each_with_index.map { |grid, i| grid.to_s.tljust(@column_widths[i]) }.join(' | ') + " |\n"
+        content = row.each_with_index.map { |grid, i| grid.to_s.tljust(@column_widths[i]) }
+
+        result += '| ' + content.join(' | ') + " |\n"
       end
 
       result + header_and_footer
