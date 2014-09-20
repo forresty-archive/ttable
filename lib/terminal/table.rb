@@ -10,7 +10,7 @@ class String
     chars.inject(result) do |result, c|
       if c.ord <= 126
         result += 1
-      elsif %w{ • é · ♪ … }.include?(c)
+      elsif %w{ • é · ♪ … ω ˊ ˋ }.include?(c)
         result += 1
       elsif Emoji.find_by_unicode(c)
         result += 1
