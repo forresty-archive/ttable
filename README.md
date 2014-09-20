@@ -1,6 +1,8 @@
-# Ttable
+# ttable
 
-TODO: Write a gem description
+See it in action:
+
+![screenshot.png](screenshot.png)
 
 ## Installation
 
