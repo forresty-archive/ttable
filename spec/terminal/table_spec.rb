@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require "spec_helper"
 
 module Terminal
@@ -14,6 +16,30 @@ module Terminal
         subject { Table.new { |t| t.headings = %w{ head } } }
         its(:to_s) { should == "+------+\n| head |\n+------+\n+------+\n" }
       end
+    end
+  end
+end
+
+describe String do
+  describe '#twidth' do
+    context 'Ｃ' do
+      subject { 'Ｃ' }
+      its(:twidth) { should == 2 }
+    end
+
+    context 'ě' do
+      subject { 'ě' }
+      its(:twidth) { should == 1 }
+    end
+
+    context 'ｌ' do
+      subject { 'ｌ' }
+      its(:twidth) { should == 2 }
+    end
+
+    context 'ì' do
+      subject { 'ì' }
+      its(:twidth) { should == 1 }
     end
   end
 end
