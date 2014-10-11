@@ -52,6 +52,10 @@ module Terminal
 
       if @headings.count > 0
         (0...@headings.size).each do |col|
+          @column_widths[col] = @headings[col].twidth
+        end
+
+        (0...@headings.size).each do |col|
           @column_widths[col] = [@column_widths[col], @headings[col].twidth].max
         end
       end
