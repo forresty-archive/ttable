@@ -1,6 +1,7 @@
 # ttable
 
 [![Code Climate](https://codeclimate.com/github/forresty/ttable/badges/gpa.svg)](https://codeclimate.com/github/forresty/ttable)
+[![Coverage Status](https://img.shields.io/coveralls/forresty/ttable.svg)](https://coveralls.io/r/forresty/ttable)
 
 See it in action:
 
