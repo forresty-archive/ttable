@@ -1,5 +1,7 @@
 # ttable
 
+[![Code Climate](https://codeclimate.com/github/forresty/ttable/badges/gpa.svg)](https://codeclimate.com/github/forresty/ttable)
+
 See it in action:
 
 ![screenshot.png](screenshot.png)
