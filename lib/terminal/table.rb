@@ -4,8 +4,12 @@ require "gemoji"
 
 class String
   def twidth
-    # ❤️ is 2 characters
-    result = -3 * scan('❤️').size
+    result = 0
+
+    # ☺️ ❤️ are 2 characters
+    %w{ ☺️ ❤️ }.each do |c|
+      result += -3 * scan(c).size
+    end
 
     chars.inject(result) do |result, c|
       if c.ord <= 126

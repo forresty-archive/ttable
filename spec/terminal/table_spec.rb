@@ -41,5 +41,15 @@ describe String do
       subject { 'ì' }
       its(:twidth) { should == 1 }
     end
+
+    context '☺️' do
+      subject { '☺️' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '❤️' do
+      subject { '❤️' }
+      its(:twidth) { should == 1 }
+    end
   end
 end
