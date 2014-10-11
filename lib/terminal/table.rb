@@ -14,7 +14,7 @@ class String
     chars.inject(result) do |result, c|
       if c.ord <= 126
         result += 1
-      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ }.include?(c)
+      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ }.include?(c)
         result += 1
       elsif Emoji.find_by_unicode(c)
         result += 1
