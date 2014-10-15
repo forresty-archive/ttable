@@ -52,6 +52,16 @@ module Terminal
       recalculate_column_widths!
     end
 
+    def rows=(rows)
+      @rows = rows
+      recalculate_column_widths!
+    end
+
+    def headings=(headings)
+      @headings = headings
+      recalculate_column_widths!
+    end
+
     def recalculate_column_widths!
       if @rows.count > 0
         (0...@rows.first.size).each do |col|

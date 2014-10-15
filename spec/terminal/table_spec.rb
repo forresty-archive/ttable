@@ -16,6 +16,28 @@ module Terminal
         subject { Table.new { |t| t.headings = %w{ head } } }
         its(:to_s) { should == "+------+\n| head |\n+------+\n+------+\n" }
       end
+
+      context 'when set contents after' do
+        subject { Table.new.tap { |t| t.headings = %w{ head } } }
+        its(:to_s) { should == "+------+\n| head |\n+------+\n+------+\n" }
+      end
+
+      context 'with nil values' do
+        subject { Table.new { |t| t.headings = %w{ head }; t.rows = [ [ nil ] ] } }
+        its(:to_s) { should == "+------+\n| head |\n+------+\n|      |\n+------+\n" }
+      end
+
+      context 'with nil values' do
+        subject { Table.new { |t| t.headings = %w{ head1 head2 }; t.rows = [ [ nil, nil ] ] } }
+        expected = <<END
+        +-------+-------+
+        | head1 | head2 |
+        +-------+-------+
+        |       |       |
+        +-------+-------+
+END
+        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
   end
 end
