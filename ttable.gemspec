@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ttable/version'
+require 'terminal/table'
 
 Gem::Specification.new do |spec|
   spec.name          = "ttable"
-  spec.version       = Ttable::VERSION
+  spec.version       = Terminal::Table::VERSION
   spec.authors       = ["Forrest Ye"]
   spec.email         = ["afu@forresty.com"]
   spec.summary       = %q{Terminal Table with @2x width character support}
