@@ -40,8 +40,6 @@ end
 
 module Terminal
   class Table
-    VERSION = '0.0.2'
-
     attr_accessor :rows
     attr_accessor :headings
     attr_accessor :column_widths

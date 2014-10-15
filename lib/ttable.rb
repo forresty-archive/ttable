@@ -1,2 +1,2 @@
-require "ttable/version"
+require "terminal/table/version"
 require "terminal/table"
