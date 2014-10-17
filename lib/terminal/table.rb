@@ -21,6 +21,8 @@ class String
         result += 1
       elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — }.include?(c)
         result += 1
+      elsif c == ' ' # ord == 8198
+        result += 1
       elsif Emoji.find_by_unicode(c)
         result += 1
       else
