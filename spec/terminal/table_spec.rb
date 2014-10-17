@@ -154,5 +154,10 @@ describe String do
       subject { '（¯﹃¯）' }
       its(:twidth) { should == 8 }
     end
+
+    context '（）' do
+      subject { '（）' }
+      its(:twidth) { should == 4 }
+    end
   end
 end
