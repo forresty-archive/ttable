@@ -28,6 +28,10 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## TODO
+
+- handle new lines properly
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/ttable/fork )

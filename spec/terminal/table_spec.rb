@@ -12,6 +12,17 @@ module Terminal
         its(:to_s) { should == "++\n++\n" }
       end
 
+      context 'new lines' do
+        subject { Table.new { |t| t.rows = [["a\nb"]] } }
+
+        expected = <<END
+        +-----+
+        | a b |
+        +-----+
+END
+        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      end
+
       context 'when only heading' do
         subject { Table.new { |t| t.headings = %w{ head } } }
         its(:to_s) { should == "+------+\n| head |\n+------+\n+------+\n" }
@@ -137,6 +148,11 @@ describe String do
     context ' ͡° ͜ʖ ͡°' do
       subject { ' ͡° ͜ʖ ͡°' }
       its(:twidth) { should == 6 }
+    end
+
+    context '（¯﹃¯）' do
+      subject { '（¯﹃¯）' }
+      its(:twidth) { should == 8 }
     end
   end
 end
