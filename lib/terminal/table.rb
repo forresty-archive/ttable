@@ -19,7 +19,10 @@ class String
     chars.inject(result) do |result, c|
       if c.ord <= 126
         result += 1
-      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — }.include?(c)
+      elsif %w{  ͡  ͜ }.include?(c)
+        # zero width
+        result += 0
+      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ }.include?(c)
         result += 1
       elsif c == ' ' # ord == 8198
         result += 1

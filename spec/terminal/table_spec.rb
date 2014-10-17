@@ -133,5 +133,10 @@ describe String do
       subject { ' ' }
       its(:twidth) { should == 1 }
     end
+
+    context ' ͡° ͜ʖ ͡°' do
+      subject { ' ͡° ͜ʖ ͡°' }
+      its(:twidth) { should == 6 }
+    end
   end
 end
