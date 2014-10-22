@@ -159,5 +159,10 @@ describe String do
       subject { '（）' }
       its(:twidth) { should == 4 }
     end
+
+    context '≥≤' do
+      subject { '≥≤' }
+      its(:twidth) { should == 2 }
+    end
   end
 end
