@@ -59,12 +59,10 @@ module Terminal
 
     def rows=(rows)
       @rows = rows.map { |row| row.map { |item| item.to_s.gsub("\n", " ") } }
-      recalculate_column_widths!
     end
 
     def headings=(headings)
       @headings = headings
-      recalculate_column_widths!
     end
 
     def recalculate_column_widths!
@@ -82,6 +80,8 @@ module Terminal
     end
 
     def to_s
+      recalculate_column_widths!
+
       result = ''
 
       header_and_footer = '+' + @column_widths.map { |w| '-' * (w + 2) }.join('+') + '+' + "\n"

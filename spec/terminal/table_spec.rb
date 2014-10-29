@@ -23,6 +23,23 @@ END
         its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
       end
 
+      context 'mutli calls to <<' do
+        it 'works as well' do
+          table = Table.new
+          table.rows << %w{ a }
+          table.rows << %w{ b }
+
+          expected = <<END
+          +---+
+          | a |
+          | b |
+          +---+
+END
+
+          table.to_s.should == expected.gsub(/^(\s+)/, '')
+        end
+      end
+
       context 'when only heading' do
         subject { Table.new { |t| t.headings = %w{ head } } }
         its(:to_s) { should == "+------+\n| head |\n+------+\n+------+\n" }
