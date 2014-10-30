@@ -10,6 +10,14 @@ class Dummy
   end
 end
 
+class Dummy2
+  attr_accessor :foo1, :foo2, :foo3
+
+  def to_hash
+    { foo1: @foo1, foo2: @foo2, foo3: @foo3 }
+  end
+end
+
 module Terminal
   describe Table do
     it { should respond_to :to_s }
@@ -39,6 +47,34 @@ END
       | foo  |
       +------+
       | bar1 |
+      | bar2 |
+      +------+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
+    describe 'initialize with object#to_hash and :only option' do
+      let(:object) { Dummy2.new.tap { |d| d.foo1 = 'bar1'; d.foo2 = 'bar2'; d.foo3 = 'bar3' } }
+      subject { Table.new(object, only: [:foo1, :foo2]) }
+
+      expected = <<END
+      +------+------+
+      | foo1 | foo2 |
+      +------+------+
+      | bar1 | bar2 |
+      +------+------+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
+    describe 'initialize with object#to_hash and :except option' do
+      let(:object) { Dummy2.new.tap { |d| d.foo1 = 'bar1'; d.foo2 = 'bar2'; d.foo3 = 'bar3' } }
+      subject { Table.new(object, except: [:foo1, :foo3]) }
+
+      expected = <<END
+      +------+
+      | foo2 |
+      +------+
       | bar2 |
       +------+
 END

@@ -49,16 +49,16 @@ module Terminal
     attr_accessor :headings
     attr_accessor :column_widths
 
-    def initialize(object = nil)
+    def initialize(object = nil, options = {})
       @rows = []
       @headings = []
       @column_widths = []
 
       if object
         if object.respond_to?(:each)
-          object.each { |o| add_object(o) }
+          object.each { |o| add_object(o, options) }
         else
-          add_object(object)
+          add_object(object, options)
         end
       end
 
@@ -66,10 +66,17 @@ module Terminal
       recalculate_column_widths!
     end
 
-    def add_object(object)
+    def add_object(object, options)
       if object.respond_to?(:to_hash)
-        @headings = object.to_hash.keys.map(&:to_s)
-        @rows << object.to_hash.values
+        hash = object.to_hash
+        if options[:only]
+          hash.keep_if { |k, v| options[:only].include?(k) }
+        elsif options[:except]
+          hash.delete_if { |k, v| options[:except].include?(k) }
+        end
+
+        @headings = hash.keys.map(&:to_s)
+        @rows << hash.values
       end
     end
 
