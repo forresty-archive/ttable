@@ -18,14 +18,31 @@ module Terminal
       let(:object) { Dummy.new.tap { |d| d.foo = 'bar' } }
       subject { Table.new(object) }
 
-        expected = <<END
-        +-----+
-        | foo |
-        +-----+
-        | bar |
-        +-----+
+      expected = <<END
+      +-----+
+      | foo |
+      +-----+
+      | bar |
+      +-----+
 END
-        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
+    describe 'initialize with objects' do
+      let(:object1) { Dummy.new.tap { |d| d.foo = 'bar1' } }
+      let(:object2) { Dummy.new.tap { |d| d.foo = 'bar2' } }
+
+      subject { Table.new([object1, object2]) }
+
+      expected = <<END
+      +------+
+      | foo  |
+      +------+
+      | bar1 |
+      | bar2 |
+      +------+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
     end
 
     describe '#to_s' do

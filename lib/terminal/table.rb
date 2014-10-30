@@ -54,13 +54,23 @@ module Terminal
       @headings = []
       @column_widths = []
 
-      if object && object.respond_to?(:to_hash)
-        @headings = object.to_hash.keys.map(&:to_s)
-        @rows = [object.to_hash.values]
+      if object
+        if object.respond_to?(:each)
+          object.each { |o| add_object(o) }
+        else
+          add_object(object)
+        end
       end
 
       yield self if block_given?
       recalculate_column_widths!
+    end
+
+    def add_object(object)
+      if object.respond_to?(:to_hash)
+        @headings = object.to_hash.keys.map(&:to_s)
+        @rows << object.to_hash.values
+      end
     end
 
     def rows=(rows)
