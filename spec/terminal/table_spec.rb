@@ -256,5 +256,10 @@ describe String do
       subject { '≥≤' }
       its(:twidth) { should == 2 }
     end
+
+    context '（≧∇≦）' do
+      subject { '（≧∇≦）' }
+      its(:twidth) { should == 7 }
+    end
   end
 end
