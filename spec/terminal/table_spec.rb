@@ -2,9 +2,31 @@
 
 require "spec_helper"
 
+class Dummy
+  attr_accessor :foo
+
+  def to_hash
+    { foo: @foo }
+  end
+end
+
 module Terminal
   describe Table do
     it { should respond_to :to_s }
+
+    describe 'initialize with object#to_hash' do
+      let(:object) { Dummy.new.tap { |d| d.foo = 'bar' } }
+      subject { Table.new(object) }
+
+        expected = <<END
+        +-----+
+        | foo |
+        +-----+
+        | bar |
+        +-----+
+END
+        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
 
     describe '#to_s' do
       context 'when empty' do

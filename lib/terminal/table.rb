@@ -49,10 +49,16 @@ module Terminal
     attr_accessor :headings
     attr_accessor :column_widths
 
-    def initialize
+    def initialize(object = nil)
       @rows = []
       @headings = []
       @column_widths = []
+
+      if object && object.respond_to?(:to_hash)
+        @headings = object.to_hash.keys.map(&:to_s)
+        @rows = [object.to_hash.values]
+      end
+
       yield self if block_given?
       recalculate_column_widths!
     end
