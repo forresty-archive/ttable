@@ -81,7 +81,7 @@ module Terminal
     end
 
     def rows=(rows)
-      @rows = rows.map { |row| row.map { |item| item.to_s.gsub("\n", " ") } }
+      @rows = rows.map { |row| row.map { |item| item.to_s.gsub("\r\n", " ").gsub("\n", " ").gsub("\r", " ") } }
     end
 
     def headings=(headings)
