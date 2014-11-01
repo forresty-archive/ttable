@@ -80,15 +80,13 @@ module Terminal
       end
     end
 
-    def rows=(rows)
-      @rows = rows.map { |row| row.map { |item| item.to_s.gsub("\r\n", " ").gsub("\n", " ").gsub("\r", " ") } }
-    end
-
     def headings=(headings)
       @headings = headings
     end
 
     def recalculate_column_widths!
+      @rows = rows.map { |row| row.map { |item| item.to_s.gsub("\r\n", " ").gsub("\n", " ").gsub("\r", " ") } }
+
       if @rows.count > 0
         (0...@rows.first.size).each do |col|
           @column_widths[col] = @rows.map { |row| row[col].to_s.twidth }.max

@@ -98,6 +98,17 @@ END
         its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
       end
 
+      context 'new lines \n when <<' do
+        subject { Table.new { |t| t.rows << ["a\nb"] } }
+
+        expected = <<END
+        +-----+
+        | a b |
+        +-----+
+END
+        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      end
+
       context 'new lines \r' do
         subject { Table.new { |t| t.rows = [["a\rb"]] } }
 
