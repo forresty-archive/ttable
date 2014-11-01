@@ -22,7 +22,7 @@ class String
       elsif %w{  ͡  ͜ }.include?(c)
         # zero width
         result += 0
-      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤ ≧ ∇ ≦  }.include?(c)
+      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤ ≧ ∇ ≦  ❤ }.include?(c)
         result += 1
       elsif c == ' ' # ord == 8198
         result += 1
