@@ -194,6 +194,11 @@ describe String do
       its(:twidth) { should == 1 }
     end
 
+    context '☺️☺️' do
+      subject { '☺️☺️' }
+      its(:twidth) { should == 2 }
+    end
+
     context '❤️' do
       subject { '❤️' }
       its(:twidth) { should == 1 }
@@ -217,6 +222,11 @@ describe String do
     context '♍️' do
       subject { '♍️' }
       its(:twidth) { should == 1 }
+    end
+
+    context '♍️♍️' do
+      subject { '♍️♍️' }
+      its(:twidth) { should == 2 }
     end
 
     context '☻' do

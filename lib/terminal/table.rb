@@ -6,14 +6,11 @@ class String
   def twidth
     result = 0
 
-    # 4 code point emoji
-    %w{ ☺️ ❤️ }.each do |c|
-      result += -3 * scan(c).size
-    end
-
-    # 3 code point emoji
-    %w{ ♍️ }.each do |c|
-      result += -2 * scan(c).size
+    %w{ ☺️ ❤️ ♍️ }.each do |c|
+      if include?(c)
+        result += 1 * scan(c).size
+        gsub!(c, '')
+      end
     end
 
     chars.inject(result) do |result, c|
