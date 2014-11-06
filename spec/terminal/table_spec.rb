@@ -317,5 +317,25 @@ describe String do
       subject { '❤' }
       its(:twidth) { should == 1 }
     end
+
+    context '☺' do
+      subject { '☺' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '╭(╯ε╰)╮' do
+      subject { '╭(╯ε╰)╮' }
+      its(:twidth) { should == 7 }
+    end
+
+    context '_(:з)∠)_' do
+      subject { '_(:з)∠)_' }
+      its(:twidth) { should == 8 }
+    end
+
+    context '→_→' do
+      subject { '→_→' }
+      its(:twidth) { should == 3 }
+    end
   end
 end
