@@ -67,9 +67,9 @@ module Terminal
       if object.respond_to?(:to_hash)
         hash = object.to_hash
         if options[:only]
-          hash.keep_if { |k, v| options[:only].include?(k) }
+          hash.keep_if { |k, v| options[:only].map(&:to_sym).include?(k) }
         elsif options[:except]
-          hash.delete_if { |k, v| options[:except].include?(k) }
+          hash.delete_if { |k, v| options[:except].map(&:to_sym).include?(k) }
         end
 
         @headings = hash.keys.map(&:to_s)

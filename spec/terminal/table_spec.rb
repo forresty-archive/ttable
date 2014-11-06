@@ -67,6 +67,20 @@ END
       its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
     end
 
+    describe 'initialize with object#to_hash and :only option' do
+      let(:object) { Dummy2.new.tap { |d| d.foo1 = 'bar1'; d.foo2 = 'bar2'; d.foo3 = 'bar3' } }
+      subject { Table.new(object, only: %w{ foo1 foo2 }) }
+
+      expected = <<END
+      +------+------+
+      | foo1 | foo2 |
+      +------+------+
+      | bar1 | bar2 |
+      +------+------+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
     describe 'initialize with object#to_hash and :except option' do
       let(:object) { Dummy2.new.tap { |d| d.foo1 = 'bar1'; d.foo2 = 'bar2'; d.foo3 = 'bar3' } }
       subject { Table.new(object, except: [:foo1, :foo3]) }
