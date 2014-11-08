@@ -357,5 +357,10 @@ describe String do
       subject { "ϵ( 'Θ' )϶" }
       its(:twidth) { should == 9 }
     end
+
+    context 'にΟΙ' do
+      subject { 'にΟΙ' }
+      its(:twidth) { should == 4 }
+    end
   end
 end
