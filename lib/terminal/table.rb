@@ -6,7 +6,7 @@ class String
   def twidth
     result = 0
 
-    %w{ ☺️ ❤️ ♍️ }.each do |c|
+    %w{ ☺️ ❤️ ♍️ ☔️ }.each do |c|
       if include?(c)
         result += 1 * scan(c).size
         gsub!(c, '')
@@ -19,7 +19,7 @@ class String
       elsif %w{  ͡  ͜ }.include?(c)
         # zero width
         result += 0
-      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤ ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → }.include?(c)
+      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤ ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ }.include?(c)
         result += 1
       elsif c == ' ' # ord == 8198
         result += 1
