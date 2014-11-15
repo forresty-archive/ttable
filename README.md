@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/forresty/ttable/badges/gpa.svg)](https://codeclimate.com/github/forresty/ttable)
 [![Coverage Status](https://img.shields.io/coveralls/forresty/ttable.svg)](https://coveralls.io/r/forresty/ttable)
 [![Build Status](https://travis-ci.org/forresty/ttable.svg?branch=master)](https://travis-ci.org/forresty/ttable)
+[![Gem Version](https://badge.fury.io/rb/ttable.svg)](http://badge.fury.io/rb/ttable)
 
 See it in action:
 
