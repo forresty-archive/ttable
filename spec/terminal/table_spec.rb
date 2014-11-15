@@ -22,6 +22,38 @@ module Terminal
   describe Table do
     it { should respond_to :to_s }
 
+    describe 'initialize with hash' do
+      let(:hash) { { foo: 'bar' } }
+
+      subject { Table.new(hash) }
+
+      expected = <<END
+      +-----+
+      | foo |
+      +-----+
+      | bar |
+      +-----+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
+    describe 'initialize with array of hashes' do
+      let(:hash1) { { foo: 'bar1' } }
+      let(:hash2) { { foo: 'bar2' } }
+
+      subject { Table.new([hash1, hash2]) }
+
+      expected = <<END
+      +------+
+      | foo  |
+      +------+
+      | bar1 |
+      | bar2 |
+      +------+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
     describe 'initialize with object#to_hash' do
       let(:object) { Dummy.new.tap { |d| d.foo = 'bar' } }
       subject { Table.new(object) }

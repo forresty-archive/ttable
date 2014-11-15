@@ -50,9 +50,10 @@ module Terminal
       @rows = []
       @headings = []
       @column_widths = []
-
       if object
-        if object.respond_to?(:each)
+        if object.is_a?(Hash)
+          add_hash(object, options)
+        elsif object.respond_to?(:each)
           object.each { |o| add_object(o, options) }
         else
           add_object(object, options)
@@ -64,17 +65,18 @@ module Terminal
     end
 
     def add_object(object, options)
-      if object.respond_to?(:to_hash)
-        hash = object.to_hash
-        if options[:only]
-          hash.keep_if { |k, v| options[:only].map(&:to_sym).include?(k) }
-        elsif options[:except]
-          hash.delete_if { |k, v| options[:except].map(&:to_sym).include?(k) }
-        end
+      add_hash(object.to_hash, options) if object.respond_to?(:to_hash)
+    end
 
-        @headings = hash.keys.map(&:to_s)
-        @rows << hash.values
+    def add_hash(hash, options)
+      if options[:only]
+        hash.keep_if { |k, v| options[:only].map(&:to_sym).include?(k) }
+      elsif options[:except]
+        hash.delete_if { |k, v| options[:except].map(&:to_sym).include?(k) }
       end
+
+      @headings = hash.keys.map(&:to_s)
+      @rows << hash.values
     end
 
     def headings=(headings)
