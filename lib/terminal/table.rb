@@ -143,7 +143,7 @@ module Terminal
 
     class << self
       def special_tokens
-        String.CHARS_OF_WIDTH_OF_1 + String.CHARS_OF_WIDTH_OF_0
+        String::CHARS_OF_WIDTH_OF_1 + String::CHARS_OF_WIDTH_OF_0
       end
     end
   end
