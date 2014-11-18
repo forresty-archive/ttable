@@ -20,6 +20,11 @@ end
 
 module Terminal
   describe Table do
+    describe 'class methods' do
+      subject { Table }
+      it { should respond_to :special_tokens }
+    end
+
     it { should respond_to :to_s }
 
     describe 'initialize with array of array' do

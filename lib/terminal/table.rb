@@ -3,6 +3,10 @@
 require "gemoji"
 
 class String
+  CHARS_OF_WIDTH_OF_1 = %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤
+    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ }
+  CHARS_OF_WIDTH_OF_0 = %w{  ͡  ͜  ̫ }
+
   def twidth
     result = 0
 
@@ -16,10 +20,10 @@ class String
     chars.inject(result) do |result, c|
       if c.ord <= 126
         result += 1
-      elsif %w{  ͡  ͜  ̫ }.include?(c)
+      elsif CHARS_OF_WIDTH_OF_0.include?(c)
         # zero width
         result += 0
-      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤ ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ }.include?(c)
+      elsif CHARS_OF_WIDTH_OF_1.include?(c)
         result += 1
       elsif c == ' ' # ord == 8198
         result += 1
@@ -135,6 +139,12 @@ module Terminal
       end
 
       result + header_and_footer
+    end
+
+    class << self
+      def special_tokens
+        String.CHARS_OF_WIDTH_OF_1 + String.CHARS_OF_WIDTH_OF_0
+      end
     end
   end
 end
