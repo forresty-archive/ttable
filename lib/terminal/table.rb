@@ -65,7 +65,11 @@ module Terminal
     end
 
     def add_object(object, options)
-      add_hash(object.to_hash, options) if object.respond_to?(:to_hash)
+      if object.respond_to?(:to_hash)
+        add_hash(object.to_hash, options)
+      elsif object.respond_to?(:each)
+        @rows << object
+      end
     end
 
     def add_hash(hash, options)

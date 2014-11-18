@@ -22,6 +22,19 @@ module Terminal
   describe Table do
     it { should respond_to :to_s }
 
+    describe 'initialize with array of array' do
+      let(:array) { [%w{ hello 1 }, %w{ world 2 } ] }
+      subject { Table.new(array) }
+
+      expected = <<END
+      +-------+---+
+      | hello | 1 |
+      | world | 2 |
+      +-------+---+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
     describe 'initialize with hash' do
       let(:hash) { { foo: 'bar' } }
 
