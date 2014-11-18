@@ -19,7 +19,7 @@ class String
       elsif %w{  ͡  ͜  ̫ }.include?(c)
         # zero width
         result += 0
-      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤ ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι }.include?(c)
+      elsif %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤ ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ }.include?(c)
         result += 1
       elsif c == ' ' # ord == 8198
         result += 1
@@ -45,11 +45,19 @@ module Terminal
     attr_accessor :rows
     attr_accessor :headings
     attr_accessor :column_widths
+    attr_accessor :new_line_symbol
 
     def initialize(object = nil, options = {})
       @rows = []
       @headings = []
       @column_widths = []
+
+      if options[:use_new_line_symbol]
+        @new_line_symbol = '⏎'
+      else
+        @new_line_symbol = ' '
+      end
+
       if object
         if object.is_a?(Hash)
           add_hash(object, options)
@@ -88,7 +96,7 @@ module Terminal
     end
 
     def recalculate_column_widths!
-      @rows = rows.map { |row| row.map { |item| item.to_s.gsub("\r\n", " ").gsub("\n", " ").gsub("\r", " ") } }
+      @rows = rows.map { |row| row.map { |item| item.to_s.gsub("\r\n", @new_line_symbol).gsub("\n", @new_line_symbol).gsub("\r", @new_line_symbol) } }
 
       if @rows.count > 0
         (0...@rows.first.size).each do |col|

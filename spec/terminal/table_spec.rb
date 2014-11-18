@@ -179,6 +179,17 @@ END
         its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
       end
 
+      context 'new line symbol' do
+        subject { Table.new(nil, use_new_line_symbol: true).tap { |t| t.rows = [["a\rb"]] } }
+
+        expected = <<END
+        +-----+
+        | a⏎b |
+        +-----+
+END
+        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      end
+
       context 'mutli calls to <<' do
         it 'works as well' do
           table = Table.new
