@@ -104,6 +104,10 @@ puts Terminal::Table.new(object, only: %w{ foo1 foo2 })
 +------+------+
 ```
 
+## Credits
+
+- [terminal-table gem](https://github.com/tj/terminal-table)
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/ttable/fork )
