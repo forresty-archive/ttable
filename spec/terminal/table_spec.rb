@@ -463,5 +463,108 @@ describe String do
       subject { '⊙' }
       its(:twidth) { should == 1 }
     end
+
+    context '(｡･ω･｡)ﾉ♡' do
+      pending 'not finished yet'
+    end
+
+    context '' do
+      pending
+    end
+
+    context '👋' do
+      pending
+    end
+
+    context '↓↓' do
+      pending
+    end
+
+    context '℃' do
+      pending
+    end
+
+    context '(●✿∀✿●)' do
+      pending
+    end
+
+    context 'Д' do
+      pending
+    end
+
+    context '(´•̥̥̥ω•̥̥̥`)' do
+      pending
+    end
+
+    context ' ᷄' do
+      pending
+    end
+
+    context '‾' do
+      subject { '‾' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '༼蛇精༽༄ ' do
+      pending
+    end
+
+    context '✌' do
+      subject { '✌' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '(´Д` )' do
+      pending
+    end
+
+    context '゜∀)ノ' do
+      pending
+    end
+
+    context '⬇⬇⬇⬇' do
+      subject { '⬇⬇⬇⬇' }
+      its(:twidth) { should == 4 }
+    end
+
+    context 'ヽ(#`Д´)ﾉ' do
+      pending
+    end
+
+    context '～٩(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)و' do
+      pending
+    end
+
+    context '😂' do
+      subject { '😂' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '⊙▽⊙' do
+      subject { '⊙▽⊙' }
+      its(:twidth) { should == 3 }
+    end
+
+    context '✖️✖️' do
+      subject { '✖️✖️' }
+      its(:twidth) { should == 2 }
+    end
+
+    context '☁' do
+      subject { '☁' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '( ・᷄ ᵌ・᷅ )' do
+      pending
+    end
+
+    context '(☆_☆)Y(^_^)Y ♪─Ｏ（≧∇≦）Ｏ─♪' do
+      pending
+    end
+
+    context '12～★ 今天新换的 (๑¯ิε ¯ิ๑）' do
+      pending
+    end
   end
 end
