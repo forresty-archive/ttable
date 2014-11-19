@@ -4,13 +4,13 @@ require "gemoji"
 
 class String
   CHARS_OF_WIDTH_OF_1 = %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤
-    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó }
+    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó ˶ ˵ }
   CHARS_OF_WIDTH_OF_0 = %w{  ͡  ͜  ̫ }
 
   def twidth
     result = 0
 
-    %w{ ☺️ ❤️ ♍️ ☔️ }.each do |c|
+    %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ }.each do |c|
       if include?(c)
         result += 1 * scan(c).size
         gsub!(c, '')
