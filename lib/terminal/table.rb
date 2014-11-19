@@ -4,7 +4,7 @@ require "gemoji"
 
 class String
   CHARS_OF_WIDTH_OF_1 = %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤
-    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó ˶ ˵ }
+    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó ˶ ˵ ╥ }
   CHARS_OF_WIDTH_OF_0 = %w{  ͡  ͜  ̫ }
 
   def twidth
