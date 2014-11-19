@@ -443,5 +443,10 @@ describe String do
       subject { '¥' }
       its(:twidth) { should == 1 }
     end
+
+    context 'ó' do
+      subject { 'ó' }
+      its(:twidth) { should == 1 }
+    end
   end
 end
