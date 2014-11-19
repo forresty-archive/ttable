@@ -438,5 +438,10 @@ describe String do
       subject { '←' }
       its(:twidth) { should == 1 }
     end
+
+    context '¥' do
+      subject { '¥' }
+      its(:twidth) { should == 1 }
+    end
   end
 end
