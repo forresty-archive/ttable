@@ -660,5 +660,129 @@ describe String do
       subject { '♚' }
       its(:twidth) { should == 1 }
     end
+
+    context '(●°u°●)​ 」' do
+      pending
+    end
+
+    context 'ಥ_ಥ' do
+      pending
+    end
+
+    context '♪٩(´▽｀๑)۶ ' do
+      pending
+    end
+
+    context 'ಠ_ಠ' do
+      pending
+    end
+
+    context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
+      pending
+    end
+
+    context '눈_눈' do
+      pending
+    end
+
+    context '' do
+      pending
+    end
+
+    context '((((；ﾟДﾟ)))))))' do
+      pending
+    end
+
+    context '（∮∧∮）' do
+      pending
+    end
+
+    context 'ヽ(￣д￣;)ノ' do
+      pending
+    end
+
+    context '(Ծ‸ Ծ )' do
+      pending
+    end
+
+    context '(۶ૈ ۜ ᵒ̌▱๋ᵒ̌ )۶ૈ=͟͟͞͞ ⌨' do
+      pending
+    end
+
+    context '(๑˃̵ᴗ˂̵)و ' do
+      pending
+    end
+
+    context '嘤ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू) ' do
+      pending
+    end
+
+    context '⁽⁽٩(๑˃̶͈̀  ˂̶͈́)۶⁾⁾' do
+      pending
+    end
+
+    context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
+      pending
+    end
+
+    context 'AÏcha' do
+      pending
+    end
+
+    context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
+      pending
+    end
+
+    context '(╯°Д°)╯︵ ┻━┻ ' do
+      pending
+    end
+
+    context '┭┮﹏┭┮' do
+      pending
+    end
+
+    context '=△=' do
+      pending
+    end
+
+    context ' (ؓؒؒؑؑؖؔؓؒؐؐ⁼̴̀ωؘؙؖؕؔؓؒؑؐؕ⁼̴̀ )✧' do
+      pending
+    end
+
+    context '(¦3[____]' do
+      pending
+    end
+
+    context '( •̥́ ˍ •̀ू )' do
+      pending
+    end
+
+    context 'Σ（ﾟдﾟlll） ' do
+      pending
+    end
+
+    context '☁︎' do
+      pending
+    end
+
+    context '▀ ▄ ‖ █ ‖▌‖' do
+      pending
+    end
+
+    context 'にこにー♡' do
+      pending
+    end
+
+    context 'Наташа' do
+      pending
+    end
+
+    context '(╯°□°）╯︵' do
+      pending
+    end
+
+    context 'Facebig(((o(*ﾟ▽ﾟ*)o)))' do
+      pending
+    end
   end
 end
