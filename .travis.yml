@@ -1,5 +1,5 @@
 language: ruby
 rvm:
   - 2.0.0
+  - jruby-1.7.16
 script: bundle exec rspec
-gemfile: Gemfile.ci
