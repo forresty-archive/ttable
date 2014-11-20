@@ -469,19 +469,23 @@ describe String do
     end
 
     context '' do
-      pending
+      subject { '' }
+      its(:twidth) { should == 1 }
     end
 
     context '👋' do
-      pending
+      subject { '👋' }
+      its(:twidth) { should == 1 }
     end
 
     context '↓↓' do
-      pending
+      subject { '↓↓' }
+      its(:twidth) { should == 2 }
     end
 
     context '℃' do
-      pending
+      subject { '℃' }
+      its(:twidth) { should == 1 }
     end
 
     context '(●✿∀✿●)' do
@@ -489,7 +493,8 @@ describe String do
     end
 
     context 'Д' do
-      pending
+      subject { 'Д' }
+      its(:twidth) { should == 1 }
     end
 
     context '(´•̥̥̥ω•̥̥̥`)' do
@@ -497,7 +502,8 @@ describe String do
     end
 
     context ' ᷄' do
-      pending
+      subject { ' ᷄' }
+      its(:twidth) { should == 1 }
     end
 
     context '‾' do
@@ -515,11 +521,13 @@ describe String do
     end
 
     context '(´Д` )' do
-      pending
+      subject { '(´Д` )' }
+      its(:twidth) { should == 6 }
     end
 
     context '゜∀)ノ' do
-      pending
+      subject { '゜∀)ノ' }
+      its(:twidth) { should == 6 }
     end
 
     context '⬇⬇⬇⬇' do
@@ -528,7 +536,8 @@ describe String do
     end
 
     context 'ヽ(#`Д´)ﾉ' do
-      pending
+      subject { 'ヽ(#`Д´)ﾉ' }
+      its(:twidth) { should == 9 }
     end
 
     context '～٩(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)و' do
@@ -556,7 +565,8 @@ describe String do
     end
 
     context '( ・᷄ ᵌ・᷅ )' do
-      pending
+      subject { '( ・᷄ ᵌ・᷅ )' }
+      its(:twidth) { should == 10 }
     end
 
     context '(☆_☆)Y(^_^)Y ♪─Ｏ（≧∇≦）Ｏ─♪' do
@@ -565,6 +575,90 @@ describe String do
 
     context '12～★ 今天新换的 (๑¯ิε ¯ิ๑）' do
       pending
+    end
+
+    context '☀' do
+      subject { '☀' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '☀︎' do
+      subject { '☀︎' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '(´･_･`)' do
+      subject { '(´･_･`)' }
+      its(:twidth) { should == 7 }
+    end
+
+    context '୧⃛(๑⃙⃘◡̈๑⃙⃘)୨⃛' do
+      pending
+    end
+
+    context '❓⁉️' do
+      subject { '❓⁉️' }
+      its(:twidth) { should == 2 }
+    end
+
+    context '⬇️⬇️⬇️⬇️⬇️…🌚！！！😰😤😤' do
+      pending
+    end
+
+    context '！' do
+      subject { '！' }
+      its(:twidth) { should == 2 }
+    end
+
+    context '～' do
+      subject { '～' }
+      its(:twidth) { should == 2 }
+    end
+
+    context '(˘̩̩̩ε˘̩ƪ)' do
+      pending
+    end
+
+    context 'ʕ •ᴥ•ʔ' do
+      pending
+    end
+
+    context '´●＿●`' do
+      subject { '´●＿●`' }
+      its(:twidth) { should == 6 }
+    end
+
+    context '＿' do
+      subject { '＿' }
+      its(:twidth) { should == 2 }
+    end
+
+    context '`' do
+      subject { '`' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '´' do
+      subject { '´' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '☆ゝ' do
+      subject { '☆ゝ' }
+      its(:twidth) { should == 3 }
+    end
+
+    context '(͏ ˉ ꈊ ˉ)✧˖°' do
+      pending
+    end
+
+    context '₍₍ (̨̡ ᗣ )̧̢ ₎₎' do
+      pending
+    end
+
+    context '♚' do
+      subject { '♚' }
+      its(:twidth) { should == 1 }
     end
   end
 end

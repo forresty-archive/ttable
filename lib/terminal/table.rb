@@ -3,16 +3,27 @@
 require "gemoji"
 
 class String
+  CHARS_OF_WIDTH_OF_2 = %w{ }
   CHARS_OF_WIDTH_OF_1 = %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤
-    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó ˶ ˵ ╥ ⊙ ☁ ▽ ⬇ ✌ ‾ }
-  CHARS_OF_WIDTH_OF_0 = %w{  ͡  ͜  ̫ }
+    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó ˶ ˵ ╥ ⊙ ☁ ▽ ⬇ ✌ ‾ ♚ ☀ ℃ Д ↓  ● ´ ☆ ･ _ ᵌ ∀ ﾉ }
+  CHARS_OF_WIDTH_OF_0 = %w{  ͡  ͜  ̫  ᷄ }
+
+  MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ }
+  MULTI_CHAR_OF_WIDTH_2 = %w{ ・᷄ ・᷅ }
 
   def twidth
     result = 0
 
-    %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 }.each do |c|
+    MULTI_CHAR_OF_WIDTH_1.each do |c|
       if include?(c)
         result += 1 * scan(c).size
+        gsub!(c, '')
+      end
+    end
+
+    MULTI_CHAR_OF_WIDTH_2.each do |c|
+      if include?(c)
+        result += 2 * scan(c).size
         gsub!(c, '')
       end
     end
@@ -25,6 +36,8 @@ class String
         result += 0
       elsif CHARS_OF_WIDTH_OF_1.include?(c)
         result += 1
+      elsif CHARS_OF_WIDTH_OF_2.include?(c)
+        result += 2
       elsif c == ' ' # ord == 8198
         result += 1
       elsif Emoji.find_by_unicode(c)
