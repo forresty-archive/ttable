@@ -489,7 +489,8 @@ describe String do
     end
 
     context '(●✿∀✿●)' do
-      pending
+      subject { '(●✿∀✿●)' }
+      its(:twidth) { should == 7 }
     end
 
     context 'Д' do
@@ -593,7 +594,8 @@ describe String do
     end
 
     context '୧⃛(๑⃙⃘◡̈๑⃙⃘)୨⃛' do
-      pending
+      subject { '୧⃛(๑⃙⃘◡̈๑⃙⃘)୨⃛' }
+      its(:twidth) { should == 7 }
     end
 
     context '❓⁉️' do
@@ -616,11 +618,13 @@ describe String do
     end
 
     context '(˘̩̩̩ε˘̩ƪ)' do
-      pending
+      subject { '(˘̩̩̩ε˘̩ƪ)' }
+      its(:twidth) { should == 6 }
     end
 
     context 'ʕ •ᴥ•ʔ' do
-      pending
+      subject { 'ʕ •ᴥ•ʔ' }
+      its(:twidth) { should == 6 }
     end
 
     context '´●＿●`' do
@@ -662,31 +666,48 @@ describe String do
     end
 
     context '(●°u°●)​ 」' do
-      pending
+      subject { '(●°u°●)​ 」' }
+      its(:twidth) { should == 11 }
+    end
+
+    context '」' do
+      subject { '」' }
+      its(:twidth) { should == 2 }
+    end
+
+    context '​​' do
+      subject { '​' } # 8203
+      its(:twidth) { should == 1 }
     end
 
     context 'ಥ_ಥ' do
-      pending
+      subject { 'ಥ_ಥ' }
+      its(:twidth) { should == 3 }
     end
 
     context '♪٩(´▽｀๑)۶ ' do
-      pending
+      subject { '♪٩(´▽｀๑)۶ ' }
+      its(:twidth) { should == 11 }
     end
 
     context 'ಠ_ಠ' do
-      pending
+      subject { 'ಠ_ಠ' }
+      its(:twidth) { should == 3 }
     end
 
     context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
-      pending
+      subject { '(ᵒ̤̑ ₀̑ ᵒ̤̑)' }
+      its(:twidth) { should == 7 }
     end
 
     context '눈_눈' do
-      pending
+      subject { '눈_눈' }
+      its(:twidth) { should == 5 }
     end
 
     context '' do
-      pending
+      subject { '' }
+      its(:twidth) { should == 1 }
     end
 
     context '((((；ﾟДﾟ)))))))' do
@@ -694,7 +715,8 @@ describe String do
     end
 
     context '（∮∧∮）' do
-      pending
+      subject { '（∮∧∮）' }
+      its(:twidth) { should == 7 }
     end
 
     context 'ヽ(￣д￣;)ノ' do
@@ -702,7 +724,8 @@ describe String do
     end
 
     context '(Ծ‸ Ծ )' do
-      pending
+      subject { '(Ծ‸ Ծ )' }
+      its(:twidth) { should == 7 }
     end
 
     context '(۶ૈ ۜ ᵒ̌▱๋ᵒ̌ )۶ૈ=͟͟͞͞ ⌨' do
@@ -714,7 +737,8 @@ describe String do
     end
 
     context '嘤ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू) ' do
-      pending
+      subject { '嘤ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू) ' }
+      its(:twidth) { should == 11 }
     end
 
     context '⁽⁽٩(๑˃̶͈̀  ˂̶͈́)۶⁾⁾' do
@@ -722,15 +746,18 @@ describe String do
     end
 
     context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
-      pending
+      subject { '(ᵒ̤̑ ₀̑ ᵒ̤̑)' }
+      its(:twidth) { should == 7 }
     end
 
     context 'AÏcha' do
-      pending
+      subject { 'AÏcha' }
+      its(:twidth) { should == 5 }
     end
 
     context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
-      pending
+      subject { '(ᵒ̤̑ ₀̑ ᵒ̤̑)' }
+      its(:twidth) { should == 7 }
     end
 
     context '(╯°Д°)╯︵ ┻━┻ ' do
@@ -738,11 +765,13 @@ describe String do
     end
 
     context '┭┮﹏┭┮' do
-      pending
+      subject { '┭┮﹏┭┮' }
+      its(:twidth) { should == 6 }
     end
 
     context '=△=' do
-      pending
+      subject { '=△=' }
+      its(:twidth) { should == 3 }
     end
 
     context ' (ؓؒؒؑؑؖؔؓؒؐؐ⁼̴̀ωؘؙؖؕؔؓؒؑؐؕ⁼̴̀ )✧' do
@@ -750,7 +779,8 @@ describe String do
     end
 
     context '(¦3[____]' do
-      pending
+      subject { '(¦3[____]' }
+      its(:twidth) { should == 9 }
     end
 
     context '( •̥́ ˍ •̀ू )' do
@@ -762,7 +792,8 @@ describe String do
     end
 
     context '☁︎' do
-      pending
+      subject { '☁︎' }
+      its(:twidth) { should == 1 }
     end
 
     context '▀ ▄ ‖ █ ‖▌‖' do
@@ -770,15 +801,18 @@ describe String do
     end
 
     context 'にこにー♡' do
-      pending
+      subject { 'にこにー♡' }
+      its(:twidth) { should == 9 }
     end
 
     context 'Наташа' do
-      pending
+      subject { 'Наташа' }
+      its(:twidth) { should == 6 }
     end
 
     context '(╯°□°）╯︵' do
-      pending
+      subject { '(╯°□°）╯︵' }
+      its(:twidth) { should == 10 }
     end
 
     context 'Facebig(((o(*ﾟ▽ﾟ*)o)))' do

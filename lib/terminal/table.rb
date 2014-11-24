@@ -5,10 +5,14 @@ require "gemoji"
 class String
   CHARS_OF_WIDTH_OF_2 = %w{ }
   CHARS_OF_WIDTH_OF_1 = %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤
-    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó ˶ ˵ ╥ ⊙ ☁ ▽ ⬇ ✌ ‾ ♚ ☀ ℃ Д ↓  ● ´ ☆ ･ _ ᵌ ∀ ﾉ }
-  CHARS_OF_WIDTH_OF_0 = %w{  ͡  ͜  ̫  ᷄ }
+    ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ☞ ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó ˶ ˵ ╥ ⊙ ☁ ▽ ⬇ ✌ ‾ ♚ ☀ ℃ Д
+    ↓  ● ´ ☆ ･ _ ᵌ ∀ ﾉ Н а т ш △  ಠ ಥ ʕ ʔ ᴥ ୧ ◡ ୨ ๑ ƪ ˘ ₀ ᵒ ٩ ۶ ∮ ∧ ʚ Ծ ‸ Ï ♡
+    □ ¦ ┮ ┭ ✿ }
+  CHARS_OF_WIDTH_OF_0 = %w{  ͡  ͜  ̫  ᷄  }
+  CHAR_CODES_OF_WIDTH_0 = %w{ 8411 776 8409 8408 809 804 785 2370 820 822 823 769 800 768 805 }
+  CHAR_CODES_OF_WIDTH_1 = %w{ 8203 }
 
-  MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ }
+  MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ ☁︎ }
   MULTI_CHAR_OF_WIDTH_2 = %w{ ・᷄ ・᷅ }
 
   def twidth
@@ -30,6 +34,12 @@ class String
 
     chars.inject(result) do |result, c|
       if c.ord <= 126
+        result += 1
+      elsif CHAR_CODES_OF_WIDTH_0.find { |code| c.ord.to_s == code }
+        # zero width
+        result += 0
+      elsif CHAR_CODES_OF_WIDTH_1.find { |code| c.ord.to_s == code }
+        # zero width
         result += 1
       elsif CHARS_OF_WIDTH_OF_0.include?(c)
         # zero width
