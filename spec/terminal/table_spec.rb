@@ -465,7 +465,8 @@ describe String do
     end
 
     context '(｡･ω･｡)ﾉ♡' do
-      pending 'not finished yet'
+      subject { '(｡･ω･｡)ﾉ♡' }
+      its(:twidth) { should == 9 }
     end
 
     context '' do
@@ -499,7 +500,8 @@ describe String do
     end
 
     context '(´•̥̥̥ω•̥̥̥`)' do
-      pending
+      subject { '(´•̥̥̥ω•̥̥̥`)' }
+      its(:twidth) { should == 7 }
     end
 
     context ' ᷄' do
@@ -513,7 +515,8 @@ describe String do
     end
 
     context '༼蛇精༽༄ ' do
-      pending
+      subject { '༼蛇精༽༄ ' }
+      its(:twidth) { should == 8 }
     end
 
     context '✌' do
@@ -542,7 +545,8 @@ describe String do
     end
 
     context '～٩(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)و' do
-      pending
+      subject { '～٩(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)و' }
+      its(:twidth) { should == 10 }
     end
 
     context '😂' do
@@ -653,11 +657,13 @@ describe String do
     end
 
     context '(͏ ˉ ꈊ ˉ)✧˖°' do
-      pending
+      subject { "(͏ ˉ ꈊ ˉ)✧˖°" }
+      its(:twidth) { should == 12 }
     end
 
     context '₍₍ (̨̡ ᗣ )̧̢ ₎₎' do
-      pending
+      subject { '₍₍ (̨̡ ᗣ )̧̢ ₎₎' }
+      its(:twidth) { should == 11 }
     end
 
     context '♚' do
@@ -711,7 +717,8 @@ describe String do
     end
 
     context '((((；ﾟДﾟ)))))))' do
-      pending
+      subject { '((((；ﾟДﾟ)))))))' }
+      its(:twidth) { should == 16 }
     end
 
     context '（∮∧∮）' do
@@ -733,7 +740,8 @@ describe String do
     end
 
     context '(๑˃̵ᴗ˂̵)و ' do
-      pending
+      subject { '(๑˃̵ᴗ˂̵)و ' }
+      its(:twidth) { should == 8 }
     end
 
     context '嘤ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू) ' do
@@ -797,7 +805,8 @@ describe String do
     end
 
     context '▀ ▄ ‖ █ ‖▌‖' do
-      pending
+      subject { '▀ ▄ ‖ █ ‖▌‖' }
+      its(:twidth) { should == 11 }
     end
 
     context 'にこにー♡' do
