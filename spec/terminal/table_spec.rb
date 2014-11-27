@@ -797,7 +797,8 @@ describe String do
     end
 
     context 'Σ（ﾟдﾟlll） ' do
-      pending
+      subject { 'Σ（ﾟдﾟlll） ' }
+      its(:twidth) { should == 12 }
     end
 
     context '☁︎' do
