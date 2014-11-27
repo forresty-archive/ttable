@@ -792,7 +792,8 @@ describe String do
     end
 
     context '( •̥́ ˍ •̀ू )' do
-      pending
+      subject { '( •̥́ ˍ •̀ू )' }
+      its(:twidth) { should == 9 }
     end
 
     context 'Σ（ﾟдﾟlll） ' do
@@ -825,7 +826,8 @@ describe String do
     end
 
     context 'Facebig(((o(*ﾟ▽ﾟ*)o)))' do
-      pending
+      subject { 'Facebig(((o(*ﾟ▽ﾟ*)o)))' }
+      its(:twidth) { should == 22 }
     end
   end
 end
