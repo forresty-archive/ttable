@@ -838,5 +838,15 @@ describe String do
       subject { 'Facebig(((o(*ﾟ▽ﾟ*)o)))' }
       its(:twidth) { should == 22 }
     end
+
+    context '♥' do
+      subject { '♥' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '❥' do
+      subject { '❥' }
+      its(:twidth) { should == 1 }
+    end
   end
 end
