@@ -1028,5 +1028,70 @@ describe String do
       subject { '☀️' }
       its(:twidth) { should == 1 }
     end
+
+    context 'ಠ' do
+      subject { 'ಠ' }
+      its(:twidth) { should == 1 }
+    end
+
+    context 'ರೃ' do
+      subject { 'ರೃ' }
+      its(:twidth) { should == 2 }
+    end
+
+    context 'ä' do
+      subject { 'ä' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '♥️' do
+      subject { '♥️' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '❶' do
+      subject { '❶' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '☘' do
+      subject { '☘' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '⚡️' do
+      subject { '⚡️' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '✔️' do
+      subject { '✔️' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '🇰🇷' do
+      subject { '🇰🇷' }
+      its(:twidth) { should == 1 }
+    end
+
+    context 'ã' do
+      subject { 'ã' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '✔' do
+      subject { '✔' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '⌛️' do
+      subject { '⌛️' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '♂' do
+      subject { '♂' }
+      its(:twidth) { should == 1 }
+    end
   end
 end
