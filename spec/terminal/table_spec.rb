@@ -998,5 +998,35 @@ describe String do
       subject { 'ฅ' }
       its(:twidth) { should == 1 }
     end
+
+    context '○' do
+      subject { '○' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '′' do
+      subject { '′' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '☁️' do
+      subject { '☁️' }
+      its(:twidth) { should == 1 }
+    end
+
+    context 'ℕᏐᎶℍᎢ' do
+      subject { 'ℕᏐᎶℍᎢ' }
+      its(:twidth) { should == 5 }
+    end
+
+    context '✈️' do
+      subject { '✈️' }
+      its(:twidth) { should == 1 }
+    end
+
+    context '☀️' do
+      subject { '☀️' }
+      its(:twidth) { should == 1 }
+    end
   end
 end
