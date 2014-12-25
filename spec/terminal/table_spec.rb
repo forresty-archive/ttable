@@ -1093,5 +1093,10 @@ describe String do
       subject { '♂' }
       its(:twidth) { should == 1 }
     end
+
+    context 'ｪ' do
+      subject { 'ｪ' }
+      its(:twidth) { should == 1 }
+    end
   end
 end
