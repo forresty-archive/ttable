@@ -72,6 +72,23 @@ END
       its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
     end
 
+    describe 'initialize with array of hashes' do
+      let(:hash1) { { 'foo' => 'foo1', 'bar' => 'bar1' } }
+      let(:hash2) { { 'foo' => 'foo2', 'bar' => 'bar2' } }
+
+      subject { Table.new([hash1, hash2], only: %w{ foo }) }
+
+      expected = <<END
+      +------+
+      | foo  |
+      +------+
+      | foo1 |
+      | foo2 |
+      +------+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
     describe 'initialize with object#to_hash' do
       let(:object) { Dummy.new.tap { |d| d.foo = 'bar' } }
       subject { Table.new(object) }

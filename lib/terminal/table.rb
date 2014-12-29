@@ -114,9 +114,9 @@ module Terminal
 
     def add_hash(hash, options)
       if options[:only]
-        hash.keep_if { |k, v| options[:only].map(&:to_sym).include?(k) }
+        hash.keep_if { |k, v| options[:only].map(&:to_sym).include?(k.to_sym) }
       elsif options[:except]
-        hash.delete_if { |k, v| options[:except].map(&:to_sym).include?(k) }
+        hash.delete_if { |k, v| options[:except].map(&:to_sym).include?(k.to_sym) }
       end
 
       @headings = hash.keys.map(&:to_s)
