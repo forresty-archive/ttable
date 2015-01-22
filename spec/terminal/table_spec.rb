@@ -162,6 +162,28 @@ END
       its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
     end
 
+    describe 'initialize with array of irregular hashes' do
+      let(:data) {
+        [
+          { :param=>"channel_id", :required=>true, :type=>"Integer" },
+          { :param=>"limit", :required=>false, :type=>"Integer", :default=>30 },
+          { :param=>"offset", :required=>false, :type=>"Integer", :default=>4611686018427387903 }
+        ]
+      }
+
+      subject { Table.new(data, flatten: true) }
+      expected = <<END
+      +------------+----------+---------+---------------------+
+      | param      | required | type    | default             |
+      +------------+----------+---------+---------------------+
+      | channel_id | true     | Integer |                     |
+      | limit      | false    | Integer | 30                  |
+      | offset     | false    | Integer | 4611686018427387903 |
+      +------------+----------+---------+---------------------+
+END
+      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+    end
+
     describe '#to_s' do
       context 'when empty' do
         subject { Table.new }

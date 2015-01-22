@@ -90,6 +90,16 @@ module Terminal
         @new_line_symbol = ' '
       end
 
+      if options[:flatten]
+        raise 'should be an array' unless object.respond_to?(:each)
+        all_keys = object.each.map(&:keys).flatten.map(&:to_sym).uniq
+        object.each do |hash|
+          all_keys.each do |key|
+            hash[key] = '' if hash[key].nil?
+          end
+        end
+      end
+
       if object
         if object.is_a?(Hash)
           add_hash(object, options)
