@@ -1147,5 +1147,10 @@ describe String do
       subject { 'Ⅱ' }
       its(:twidth) { should == 1 }
     end
+
+    context 'à' do
+      subject { 'à' }
+      its(:twidth) { should == 1 }
+    end
   end
 end
