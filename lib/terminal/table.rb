@@ -5,7 +5,7 @@ require "gemoji"
 class String
   CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 3232,
                            3237, 3248, 3267, 3589, 3665, 3844, 5026, 5046, 5072, 5603,
-                           5608, 7447, 7461, 7500, 7506, 8198, 8203, 9000, 9166,
+                           5608, 7447, 7461, 7500, 7506, 8198, 8203,
                            57643, 58141, 58370, 58381, 58387]
 
   MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ ☁︎ ⬇️ ❄️ ✌️ ♨️ 6⃣ ♻️ ♒️
@@ -74,6 +74,8 @@ class String
       when (0x2190..0x21FF) # Arrows
         result += 1
       when (0x2200..0x22FF) # Mathematical Operators
+        result += 1
+      when (0x2300..0x23FF) # Miscellaneous Technical
         result += 1
       when (0x2500..0x257F) # Box Drawing
         result += 1
