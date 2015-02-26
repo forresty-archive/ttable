@@ -49,13 +49,15 @@ class String
 
     chars.inject(result) do |result, c|
       case c.ord
-      when (0..0x7F)  # Basic Latin
+      when (0..0x7F) # Basic Latin
         result += 1
-      when (0x80..0xFF)  # Latin-1 Supplement
+      when (0x80..0xFF) # Latin-1 Supplement
         result += 1
       when (0x100..0x17F) # Latin Extended-A
         result += 1
       when (0x180..0x24F) # Latin Extended-B
+        result += 1
+      when (0x2C60..0x2C7F) # Latin Extended-C
         result += 1
       when *CHAR_CODES_OF_WIDTH_0
         result += 0
