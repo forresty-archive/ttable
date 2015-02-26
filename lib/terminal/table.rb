@@ -3,8 +3,6 @@
 require "gemoji"
 
 class String
-  CHAR_CODES_OF_WIDTH_0 = [8408, 8409, 8411]
-
   CHAR_CODES_OF_WIDTH_1 = [706, 707, 713, 714, 715, 717, 726, 728, 730, 757, 758, 920,
                            921, 927, 931, 949, 969, 1013, 1014, 1044, 1053, 1072, 1076,
                            1079, 1090, 1096, 1342, 1608, 1641, 1782, 2919, 2920, 3232,
@@ -71,6 +69,12 @@ class String
       when (0x1DC0..0x1DFF) # Combining Diacritical Marks Supplement
         result += 0
 
+      # http://www.unicode.org/charts/PDF/U20D0.pdf
+      # Combining Diacritical Marks for Symbols
+      # Range: 20D0–20FF
+      when (0x20D0..0x20DC)
+        result += 0
+
       # http://www.unicode.org/charts/PDF/U0600.pdf
       # Arabic
       # Range: 0600–06FF
@@ -123,8 +127,6 @@ class String
       when (0xFFE8..0xFFEE) # Halfwidth symbol variants
         result += 1
 
-      when *CHAR_CODES_OF_WIDTH_0
-        result += 0
       when *CHAR_CODES_OF_WIDTH_1
         result += 1
       when lambda { |ord| Emoji.find_by_unicode([ord].pack('U*')) }
