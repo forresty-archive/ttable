@@ -3,7 +3,7 @@
 require "gemoji"
 
 class String
-  CHAR_CODES_OF_WIDTH_0 = [3659, 7620, 7621, 8408, 8409, 8411]
+  CHAR_CODES_OF_WIDTH_0 = [7620, 7621, 8408, 8409, 8411]
 
   CHAR_CODES_OF_WIDTH_1 = [706, 707, 713, 714, 715, 717, 726, 728, 730, 757, 758, 920,
                            921, 927, 931, 949, 969, 1013, 1014, 1044, 1053, 1072, 1076,
@@ -99,6 +99,8 @@ class String
       # Thai
       # Range: 0E00–0E7F
       when (0xE34..0xE3A) # Vowels
+        result += 0
+      when (0xE48..0xE4B) # Tone marks
         result += 0
 
       # http://www.unicode.org/charts/PDF/UFF00.pdf
