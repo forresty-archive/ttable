@@ -3,8 +3,7 @@
 require "gemoji"
 
 class String
-  CHAR_CODES_OF_WIDTH_1 = [920,
-                           921, 927, 931, 949, 969, 1013, 1014, 1044, 1053, 1072, 1076,
+  CHAR_CODES_OF_WIDTH_1 = [1044, 1053, 1072, 1076,
                            1079, 1090, 1096, 1342, 1608, 1641, 1782, 2919, 2920, 3232,
                            3237, 3248, 3267, 3589, 3665, 3844, 3900, 3901, 5026, 5046, 5072, 5603,
                            5608, 7447, 7461, 7500, 7506, 8198, 8203, 8212, 8214, 8216, 8217,
@@ -68,8 +67,9 @@ class String
         result += 0
       when (0x1DC0..0x1DFF) # Combining Diacritical Marks Supplement
         result += 0
-
       when (0x2B0..0x2FF) # Spacing Modifier Letters
+        result += 1
+      when (0x370..0x3FF) # Greek and Coptic
         result += 1
 
       # http://www.unicode.org/charts/PDF/U20D0.pdf
