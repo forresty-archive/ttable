@@ -22,10 +22,10 @@ module Terminal
   describe Table do
     describe 'class methods' do
       subject { Table }
-      it { should respond_to :special_tokens }
+      it { is_expected.to respond_to :special_tokens }
     end
 
-    it { should respond_to :to_s }
+    it { is_expected.to respond_to :to_s }
 
     describe 'initialize with array of array' do
       let(:array) { [%w{ hello 1 }, %w{ world 2 } ] }
@@ -39,7 +39,7 @@ module Terminal
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -57,7 +57,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -77,7 +77,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -97,7 +97,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -114,7 +114,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -134,7 +134,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -151,7 +151,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -168,7 +168,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -185,7 +185,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -210,7 +210,7 @@ END
 END
       describe '#to_s' do
         subject { super().to_s }
-        it { should == expected.gsub(/^(\s+)/, '') }
+        it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
       end
     end
 
@@ -220,7 +220,7 @@ END
 
         describe '#to_s' do
           subject { super().to_s }
-          it { should == "++\n++\n" }
+          it { is_expected.to eq("++\n++\n") }
         end
       end
 
@@ -234,7 +234,7 @@ END
 END
         describe '#to_s' do
           subject { super().to_s }
-          it { should == expected.gsub(/^(\s+)/, '') }
+          it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
         end
       end
 
@@ -248,7 +248,7 @@ END
 END
         describe '#to_s' do
           subject { super().to_s }
-          it { should == expected.gsub(/^(\s+)/, '') }
+          it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
         end
       end
 
@@ -262,7 +262,7 @@ END
 END
         describe '#to_s' do
           subject { super().to_s }
-          it { should == expected.gsub(/^(\s+)/, '') }
+          it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
         end
       end
 
@@ -276,7 +276,7 @@ END
 END
         describe '#to_s' do
           subject { super().to_s }
-          it { should == expected.gsub(/^(\s+)/, '') }
+          it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
         end
       end
 
@@ -302,7 +302,7 @@ END
 
         describe '#to_s' do
           subject { super().to_s }
-          it { should == "+------+\n| head |\n+------+\n+------+\n" }
+          it { is_expected.to eq("+------+\n| head |\n+------+\n+------+\n") }
         end
       end
 
@@ -311,7 +311,7 @@ END
 
         describe '#to_s' do
           subject { super().to_s }
-          it { should == "+------+\n| head |\n+------+\n+------+\n" }
+          it { is_expected.to eq("+------+\n| head |\n+------+\n+------+\n") }
         end
       end
 
@@ -320,7 +320,7 @@ END
 
         describe '#to_s' do
           subject { super().to_s }
-          it { should == "+------+\n| head |\n+------+\n|      |\n+------+\n" }
+          it { is_expected.to eq("+------+\n| head |\n+------+\n|      |\n+------+\n") }
         end
       end
 
@@ -335,7 +335,7 @@ END
 END
         describe '#to_s' do
           subject { super().to_s }
-          it { should == expected.gsub(/^(\s+)/, '') }
+          it { is_expected.to eq(expected.gsub(/^(\s+)/, '')) }
         end
       end
     end
@@ -349,7 +349,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -358,7 +358,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -367,7 +367,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -376,7 +376,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -385,7 +385,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -394,7 +394,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -403,7 +403,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -412,7 +412,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -421,7 +421,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -430,7 +430,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -439,7 +439,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -448,7 +448,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -457,7 +457,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -466,7 +466,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -475,7 +475,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -484,7 +484,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -493,7 +493,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -502,7 +502,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 3 }
+        it { is_expected.to eq(3) }
       end
     end
 
@@ -511,7 +511,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -520,7 +520,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -529,7 +529,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 6 }
+        it { is_expected.to eq(6) }
       end
     end
 
@@ -538,7 +538,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 8 }
+        it { is_expected.to eq(8) }
       end
     end
 
@@ -547,7 +547,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 4 }
+        it { is_expected.to eq(4) }
       end
     end
 
@@ -556,7 +556,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -565,7 +565,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -574,7 +574,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -583,7 +583,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -592,7 +592,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -601,7 +601,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -610,7 +610,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 8 }
+        it { is_expected.to eq(8) }
       end
     end
 
@@ -619,7 +619,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 3 }
+        it { is_expected.to eq(3) }
       end
     end
 
@@ -628,7 +628,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -637,7 +637,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -646,7 +646,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -655,7 +655,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 9 }
+        it { is_expected.to eq(9) }
       end
     end
 
@@ -664,7 +664,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 4 }
+        it { is_expected.to eq(4) }
       end
     end
 
@@ -673,7 +673,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -682,7 +682,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -691,7 +691,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -700,7 +700,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -709,7 +709,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -718,7 +718,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 9 }
+        it { is_expected.to eq(9) }
       end
     end
 
@@ -727,7 +727,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -736,7 +736,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -745,7 +745,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 9 }
+        it { is_expected.to eq(9) }
       end
     end
 
@@ -754,7 +754,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -763,7 +763,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -772,7 +772,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -781,7 +781,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -790,7 +790,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -799,7 +799,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -808,7 +808,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -817,7 +817,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -826,7 +826,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -835,7 +835,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 8 }
+        it { is_expected.to eq(8) }
       end
     end
 
@@ -844,7 +844,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -853,7 +853,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 6 }
+        it { is_expected.to eq(6) }
       end
     end
 
@@ -862,7 +862,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 6 }
+        it { is_expected.to eq(6) }
       end
     end
 
@@ -871,7 +871,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 4 }
+        it { is_expected.to eq(4) }
       end
     end
 
@@ -880,7 +880,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 9 }
+        it { is_expected.to eq(9) }
       end
     end
 
@@ -889,7 +889,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 10 }
+        it { is_expected.to eq(10) }
       end
     end
 
@@ -898,7 +898,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -907,7 +907,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 3 }
+        it { is_expected.to eq(3) }
       end
     end
 
@@ -916,7 +916,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -925,7 +925,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -934,7 +934,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 10 }
+        it { is_expected.to eq(10) }
       end
     end
 
@@ -943,7 +943,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 28 }
+        it { is_expected.to eq(28) }
       end
     end
 
@@ -952,7 +952,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 26 }
+        it { is_expected.to eq(26) }
       end
     end
 
@@ -961,7 +961,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -970,7 +970,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -979,7 +979,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -988,7 +988,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -997,7 +997,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -1006,7 +1006,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 16 }
+        it { is_expected.to eq(16) }
       end
     end
 
@@ -1015,7 +1015,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -1024,7 +1024,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -1033,7 +1033,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 6 }
+        it { is_expected.to eq(6) }
       end
     end
 
@@ -1042,7 +1042,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 6 }
+        it { is_expected.to eq(6) }
       end
     end
 
@@ -1051,7 +1051,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 6 }
+        it { is_expected.to eq(6) }
       end
     end
 
@@ -1060,7 +1060,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -1069,7 +1069,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1078,7 +1078,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1087,7 +1087,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 3 }
+        it { is_expected.to eq(3) }
       end
     end
 
@@ -1096,7 +1096,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 12 }
+        it { is_expected.to eq(12) }
       end
     end
 
@@ -1105,7 +1105,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 11 }
+        it { is_expected.to eq(11) }
       end
     end
 
@@ -1114,7 +1114,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1123,7 +1123,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 11 }
+        it { is_expected.to eq(11) }
       end
     end
 
@@ -1132,7 +1132,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -1141,7 +1141,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1150,7 +1150,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 3 }
+        it { is_expected.to eq(3) }
       end
     end
 
@@ -1159,7 +1159,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 11 }
+        it { is_expected.to eq(11) }
       end
     end
 
@@ -1168,7 +1168,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 3 }
+        it { is_expected.to eq(3) }
       end
     end
 
@@ -1177,7 +1177,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -1186,7 +1186,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 5 }
+        it { is_expected.to eq(5) }
       end
     end
 
@@ -1195,7 +1195,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1204,7 +1204,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 16 }
+        it { is_expected.to eq(16) }
       end
     end
 
@@ -1213,7 +1213,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -1222,7 +1222,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 12 }
+        it { is_expected.to eq(12) }
       end
     end
 
@@ -1231,7 +1231,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -1240,7 +1240,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 13 }
+        it { is_expected.to eq(13) }
       end
     end
 
@@ -1249,7 +1249,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 8 }
+        it { is_expected.to eq(8) }
       end
     end
 
@@ -1258,7 +1258,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 11 }
+        it { is_expected.to eq(11) }
       end
     end
 
@@ -1267,7 +1267,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 13 }
+        it { is_expected.to eq(13) }
       end
     end
 
@@ -1276,7 +1276,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -1285,7 +1285,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 5 }
+        it { is_expected.to eq(5) }
       end
     end
 
@@ -1294,7 +1294,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 7 }
+        it { is_expected.to eq(7) }
       end
     end
 
@@ -1303,7 +1303,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 14 }
+        it { is_expected.to eq(14) }
       end
     end
 
@@ -1312,7 +1312,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 6 }
+        it { is_expected.to eq(6) }
       end
     end
 
@@ -1321,7 +1321,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 3 }
+        it { is_expected.to eq(3) }
       end
     end
 
@@ -1330,7 +1330,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 8 }
+        it { is_expected.to eq(8) }
       end
     end
 
@@ -1339,7 +1339,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 9 }
+        it { is_expected.to eq(9) }
       end
     end
 
@@ -1348,7 +1348,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 9 }
+        it { is_expected.to eq(9) }
       end
     end
 
@@ -1357,7 +1357,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 12 }
+        it { is_expected.to eq(12) }
       end
     end
 
@@ -1366,7 +1366,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1375,7 +1375,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 11 }
+        it { is_expected.to eq(11) }
       end
     end
 
@@ -1384,7 +1384,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 9 }
+        it { is_expected.to eq(9) }
       end
     end
 
@@ -1393,7 +1393,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 6 }
+        it { is_expected.to eq(6) }
       end
     end
 
@@ -1402,7 +1402,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 10 }
+        it { is_expected.to eq(10) }
       end
     end
 
@@ -1411,7 +1411,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 22 }
+        it { is_expected.to eq(22) }
       end
     end
 
@@ -1420,7 +1420,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1429,7 +1429,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1438,7 +1438,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1447,7 +1447,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1456,7 +1456,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1465,7 +1465,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1474,7 +1474,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1483,7 +1483,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1492,7 +1492,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1501,7 +1501,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1510,7 +1510,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1519,7 +1519,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1528,7 +1528,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1537,7 +1537,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1546,7 +1546,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1555,7 +1555,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1564,7 +1564,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1573,7 +1573,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1582,7 +1582,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1591,7 +1591,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1600,7 +1600,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1609,7 +1609,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1618,7 +1618,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1627,7 +1627,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -1636,7 +1636,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1645,7 +1645,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1654,7 +1654,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1663,7 +1663,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1672,7 +1672,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1681,7 +1681,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1690,7 +1690,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1699,7 +1699,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1708,7 +1708,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1717,7 +1717,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1726,7 +1726,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1735,7 +1735,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 5 }
+        it { is_expected.to eq(5) }
       end
     end
 
@@ -1744,7 +1744,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1753,7 +1753,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1762,7 +1762,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1771,7 +1771,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -1780,7 +1780,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1789,7 +1789,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1798,7 +1798,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1807,7 +1807,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1816,7 +1816,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1825,7 +1825,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1834,7 +1834,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1843,7 +1843,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1852,7 +1852,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1861,7 +1861,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1870,7 +1870,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1879,7 +1879,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1888,7 +1888,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 2 }
+        it { is_expected.to eq(2) }
       end
     end
 
@@ -1897,7 +1897,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1906,7 +1906,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
 
@@ -1915,7 +1915,7 @@ describe String do
 
       describe '#twidth' do
         subject { super().twidth }
-        it { should == 1 }
+        it { is_expected.to eq(1) }
       end
     end
   end
