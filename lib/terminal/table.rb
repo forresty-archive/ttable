@@ -3,7 +3,7 @@
 require "gemoji"
 
 class String
-  CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 3589, 3665, 3844, 8198, 8203,
+  CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 3589, 3844, 8198, 8203,
                            57643, 58141, 58370, 58381, 58387]
 
   MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ ☁︎ ⬇️ ❄️ ✌️ ♨️ 6⃣ ♻️ ♒️
@@ -155,6 +155,8 @@ class String
         result += 0
       when (0xE48..0xE4B) # Tone marks
         result += 0
+      when (0xE4F..0xE5B)
+        result += 1
 
       # http://www.unicode.org/charts/PDF/U0F00.pdf
       # Tibetan
