@@ -10,10 +10,10 @@ class String
     □ ¦ ┮ ┭ ✿ ༼  ༽ ༄ ｡ ᗨ و ₍ ₎ ᗣ ˖ ✧ ˉ ˃ ˂ ᴗ ▀ ▄ ‖ █ ▌ * ˍ Σ д ⁽ ⁾ ─ ▱ ⌨ ┻ ━ ✧
     ⁼ ♥ ❥ ❀ ∩ ╳ ❦ ✘ × ✪ ☂ ▼ ˚ ₊ ± ✏ ∪ ♬ ☜ ☞  ┐ ┌  ✔ ฅ ○ ′ ℕ Ꮠ Ꮆ ℍ Ꭲ ä ☘ ❶ ã ♂
     ｪ Ⅱ à ö }
-  CHARS_OF_WIDTH_OF_0 = %w{  ͡  ͜  ̫  ᷄  }
-  CHAR_CODES_OF_WIDTH_0 = %w{ 8411 776 8409 8408 809 804 785 2370 820 822 823 769 800
-    768 805 840 7621 808 801 807 802 847 821 3636 862 863 2760 780 3659 1756
-    1552 1553 1554 1555 1556 1557 1558 1560 1561 3267 }
+  CHAR_CODES_OF_WIDTH_0 = [768, 769, 776, 780, 785, 800, 801, 802, 804, 805, 807, 808,
+                           809, 811, 820, 821, 822, 823, 840, 847, 860, 862, 863, 865, 1552, 1553, 1554,
+                           1555, 1556, 1557, 1558, 1560, 1561, 1756, 2370, 2760, 3267, 3636,
+                           3659, 7620, 7621, 8408, 8409, 8411]
   CHAR_CODES_OF_WIDTH_1 = %w{ 8203 65439 }
 
   MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ ☁︎ ⬇️ ❄️ ✌️ ♨️ 6⃣ ♻️ ♒️
@@ -40,15 +40,12 @@ class String
     chars.inject(result) do |result, c|
       if c.ord <= 126
         result += 1
-      elsif CHAR_CODES_OF_WIDTH_0.find { |code| c.ord.to_s == code }
+      elsif CHAR_CODES_OF_WIDTH_0.find { |code| c.ord == code }
         # zero width
         result += 0
       elsif CHAR_CODES_OF_WIDTH_1.find { |code| c.ord.to_s == code }
         # zero width
         result += 1
-      elsif CHARS_OF_WIDTH_OF_0.include?(c)
-        # zero width
-        result += 0
       elsif CHARS_OF_WIDTH_OF_1.include?(c)
         result += 1
       elsif CHARS_OF_WIDTH_OF_2.include?(c)
