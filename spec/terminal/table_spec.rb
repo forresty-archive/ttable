@@ -1767,12 +1767,8 @@ describe String do
     end
 
     context 'ರೃ' do
-      subject { 'ರೃ' }
-
-      describe '#twidth' do
-        subject { super().twidth }
-        it { is_expected.to eq(2) }
-      end
+      subject { 'ರೃ'.twidth }
+      it { is_expected.to eq(2) }
     end
 
     context 'ä' do
