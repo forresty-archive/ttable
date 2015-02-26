@@ -4,8 +4,7 @@ require "gemoji"
 
 class String
   CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 3232,
-                           3237, 3248, 3267, 3589, 3665, 3844, 5603,
-                           5608, 8198, 8203,
+                           3237, 3248, 3267, 3589, 3665, 3844, 8198, 8203,
                            57643, 58141, 58370, 58381, 58387]
 
   MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ ☁︎ ⬇️ ❄️ ✌️ ♨️ 6⃣ ♻️ ♒️
@@ -66,6 +65,8 @@ class String
         result += 1
 
       when (0x13A0..0x13FF) # Cherokee
+        result += 1
+      when (0x1400..0x167F) # Unified Canadian Aboriginal Syllabics
         result += 1
       when (0x1D00..0x1D7F) # Phonetic Extensions
         result += 1
