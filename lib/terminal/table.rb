@@ -71,9 +71,9 @@ class String
         result += 1
       when (0x400..0x482) # Cyrillic
         result += 1
-      when 0x530..0x58F # Armenian
+      when (0x530..0x58F) # Armenian
         result += 1
-      when 0x2600..0x26FF # Miscellaneous Symbols
+      when (0x2600..0x26FF) # Miscellaneous Symbols
         result += 1
 
       # http://www.unicode.org/charts/PDF/U20D0.pdf
