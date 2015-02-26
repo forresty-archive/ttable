@@ -3,7 +3,7 @@
 require "gemoji"
 
 class String
-  CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 2919, 2920, 3232,
+  CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 3232,
                            3237, 3248, 3267, 3589, 3665, 3844, 3900, 3901, 5026, 5046, 5072, 5603,
                            5608, 7447, 7461, 7500, 7506, 8198, 8203, 8451, 8461, 8469, 8545, 9000, 9166,
                            11015, 57643, 58141, 58370, 58381,
@@ -122,6 +122,12 @@ class String
       # Range: 0A80–0AFF
       when (0xAC1..0xAC8) # Dependent vowel signs
         result += 0
+
+      # http://www.unicode.org/charts/PDF/U0B00.pdf
+      # Oriya
+      # Range: 0B00–0B7F
+      when (0xB66..0xB77)
+        result += 1
 
       # http://www.unicode.org/charts/PDF/U0E00.pdf
       # Thai
