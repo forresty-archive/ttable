@@ -3,8 +3,7 @@
 require "gemoji"
 
 class String
-  CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 3232,
-                           3237, 3248, 3267, 3589, 3665, 3844, 8198, 8203,
+  CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 3589, 3665, 3844, 8198, 8203,
                            57643, 58141, 58370, 58381, 58387]
 
   MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ ☁︎ ⬇️ ❄️ ✌️ ♨️ 6⃣ ♻️ ♒️
@@ -139,6 +138,14 @@ class String
       # Oriya
       # Range: 0B00–0B7F
       when (0xB66..0xB77)
+        result += 1
+
+      # http://www.unicode.org/charts/PDF/U0C80.pdf
+      # Kannada
+      # Range: 0C80–0CFF
+      when (0xC92..0xCB9)
+        result += 1
+      when (0xCC0..0xCC4)
         result += 1
 
       # http://www.unicode.org/charts/PDF/U0E00.pdf
