@@ -24,7 +24,7 @@ class String
                            9756, 9758, 9786, 9787, 9794, 9818, 9825, 9829, 9834, 9836,
                            9996, 9999, 10004, 10008, 10023, 10023, 10026, 10047, 10048,
                            10084, 10085, 10086, 10102, 11015, 57643, 58141, 58370, 58381,
-                           58387, 65377, 65381, 65386, 65417, 65439]
+                           58387]
 
   MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ ☁︎ ⬇️ ❄️ ✌️ ♨️ 6⃣ ♻️ ♒️
                               ✏️ 🇨🇳 ☁️ ✈️ ☀️ ♥️ ⚡️ ✔️ 🇰🇷 ⌛️ }
@@ -65,6 +65,19 @@ class String
         result += 1
       when (0x1E00..0x1EFF) # Latin Extended Additional
         result += 1
+      when (0xFB00..0xFB06) # Latin Ligatures
+        result += 1
+
+      # http://www.unicode.org/charts/PDF/UFF00.pdf
+      when (0xFF01..0xFF60) # Fullwidth ASCII variants && Fullwidth brackets
+        result += 2
+      when (0xFF61..0xFF64) # Halfwidth CJK punctuation
+        result += 1
+      when (0xFF65..0xFF9F) # Halfwidth Katakana variants
+        result += 1
+      when (0xFFA0..0xFFDC) # Halfwidth Hangul variants
+        result += 1
+
       when *CHAR_CODES_OF_WIDTH_0
         result += 0
       when *CHAR_CODES_OF_WIDTH_1
