@@ -8,7 +8,7 @@ class String
                            1552, 1553, 1554, 1555, 1556, 1557, 1558, 1560, 1561, 1756,
                            2370, 2760, 3267, 3636, 3659, 7620, 7621, 8408, 8409, 8411]
 
-  CHAR_CODES_OF_WIDTH_1 = [426, 660, 661, 662, 666,
+  CHAR_CODES_OF_WIDTH_1 = [660, 661, 662, 666,
                            706, 707, 713, 714, 715, 717, 726, 728, 730, 757, 758, 920,
                            921, 927, 931, 949, 969, 1013, 1014, 1044, 1053, 1072, 1076,
                            1079, 1090, 1096, 1342, 1608, 1641, 1782, 2919, 2920, 3232,
@@ -49,9 +49,13 @@ class String
 
     chars.inject(result) do |result, c|
       case c.ord
-      when (0..0x7F) # Basic Latin
+      when (0..0x7F)  # Basic Latin
         result += 1
-      when (0..0x17F) # Latin-1 Supplement
+      when (0..0xFF)  # Latin-1 Supplement
+        result += 1
+      when (0..0x17F) # Latin Extended-A
+        result += 1
+      when (0..0x24F) # Latin Extended-B
         result += 1
       when *CHAR_CODES_OF_WIDTH_0
         result += 0
