@@ -37,7 +37,10 @@ module Terminal
       | world | 2 |
       +-------+---+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with hash' do
@@ -52,7 +55,10 @@ END
       | bar |
       +-----+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with array of hashes' do
@@ -69,7 +75,10 @@ END
       | bar2 |
       +------+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with array of hashes' do
@@ -86,7 +95,10 @@ END
       | foo2 |
       +------+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with object#to_hash' do
@@ -100,7 +112,10 @@ END
       | bar |
       +-----+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with objects' do
@@ -117,7 +132,10 @@ END
       | bar2 |
       +------+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with object#to_hash and :only option' do
@@ -131,7 +149,10 @@ END
       | bar1 | bar2 |
       +------+------+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with object#to_hash and :only option' do
@@ -145,7 +166,10 @@ END
       | bar1 | bar2 |
       +------+------+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with object#to_hash and :except option' do
@@ -159,7 +183,10 @@ END
       | bar2 |
       +------+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe 'initialize with array of irregular hashes' do
@@ -181,13 +208,20 @@ END
       | offset     | false    | Integer | 4611686018427387903 |
       +------------+----------+---------+---------------------+
 END
-      its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+      describe '#to_s' do
+        subject { super().to_s }
+        it { should == expected.gsub(/^(\s+)/, '') }
+      end
     end
 
     describe '#to_s' do
       context 'when empty' do
         subject { Table.new }
-        its(:to_s) { should == "++\n++\n" }
+
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == "++\n++\n" }
+        end
       end
 
       context 'new lines \n' do
@@ -198,7 +232,10 @@ END
         | a b |
         +-----+
 END
-        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == expected.gsub(/^(\s+)/, '') }
+        end
       end
 
       context 'new lines \n when <<' do
@@ -209,7 +246,10 @@ END
         | a b |
         +-----+
 END
-        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == expected.gsub(/^(\s+)/, '') }
+        end
       end
 
       context 'new lines \r' do
@@ -220,7 +260,10 @@ END
         | a b |
         +-----+
 END
-        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == expected.gsub(/^(\s+)/, '') }
+        end
       end
 
       context 'new line symbol' do
@@ -231,7 +274,10 @@ END
         | a⏎b |
         +-----+
 END
-        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == expected.gsub(/^(\s+)/, '') }
+        end
       end
 
       context 'mutli calls to <<' do
@@ -247,23 +293,35 @@ END
           +---+
 END
 
-          table.to_s.should == expected.gsub(/^(\s+)/, '')
+          expect(table.to_s).to eq(expected.gsub(/^(\s+)/, ''))
         end
       end
 
       context 'when only heading' do
         subject { Table.new { |t| t.headings = %w{ head } } }
-        its(:to_s) { should == "+------+\n| head |\n+------+\n+------+\n" }
+
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == "+------+\n| head |\n+------+\n+------+\n" }
+        end
       end
 
       context 'when set contents after' do
         subject { Table.new.tap { |t| t.headings = %w{ head } } }
-        its(:to_s) { should == "+------+\n| head |\n+------+\n+------+\n" }
+
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == "+------+\n| head |\n+------+\n+------+\n" }
+        end
       end
 
       context 'with nil values' do
         subject { Table.new { |t| t.headings = %w{ head }; t.rows = [ [ nil ] ] } }
-        its(:to_s) { should == "+------+\n| head |\n+------+\n|      |\n+------+\n" }
+
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == "+------+\n| head |\n+------+\n|      |\n+------+\n" }
+        end
       end
 
       context 'with nil values' do
@@ -275,7 +333,10 @@ END
         |       |       |
         +-------+-------+
 END
-        its(:to_s) { should == expected.gsub(/^(\s+)/, '') }
+        describe '#to_s' do
+          subject { super().to_s }
+          it { should == expected.gsub(/^(\s+)/, '') }
+        end
       end
     end
   end
@@ -285,877 +346,1577 @@ describe String do
   describe '#twidth' do
     context 'Ｃ' do
       subject { 'Ｃ' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context 'ě' do
       subject { 'ě' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ｌ' do
       subject { 'ｌ' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context 'ì' do
       subject { 'ì' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☺️' do
       subject { '☺️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☺️☺️' do
       subject { '☺️☺️' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '❤️' do
       subject { '❤️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '√' do
       subject { '√' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '”' do
       subject { '”' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '“' do
       subject { '“' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '♍️' do
       subject { '♍️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '♍️♍️' do
       subject { '♍️♍️' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '☻' do
       subject { '☻' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '※' do
       subject { '※' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '◎' do
       subject { '◎' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '◆' do
       subject { '◆' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '‘' do
       subject { '‘' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '★ ’' do
       subject { '★ ’' }
-      its(:twidth) { should == 3 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 3 }
+      end
     end
 
     context '—' do
       subject { '—' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'special whitespace' do
       subject { ' ' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context ' ͡° ͜ʖ ͡°' do
       subject { ' ͡° ͜ʖ ͡°' }
-      its(:twidth) { should == 6 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 6 }
+      end
     end
 
     context '（¯﹃¯）' do
       subject { '（¯﹃¯）' }
-      its(:twidth) { should == 8 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 8 }
+      end
     end
 
     context '（）' do
       subject { '（）' }
-      its(:twidth) { should == 4 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 4 }
+      end
     end
 
     context '≥≤' do
       subject { '≥≤' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '（≧∇≦）' do
       subject { '（≧∇≦）' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context '' do
       subject { '' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '❤' do
       subject { '❤' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☺' do
       subject { '☺' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '╭(╯ε╰)╮' do
       subject { '╭(╯ε╰)╮' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context '_(:з)∠)_' do
       subject { '_(:з)∠)_' }
-      its(:twidth) { should == 8 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 8 }
+      end
     end
 
     context '→_→' do
       subject { '→_→' }
-      its(:twidth) { should == 3 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 3 }
+      end
     end
 
     context '☞' do
       subject { '☞' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ë' do
       subject { 'ë' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☔️' do
       subject { '☔️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context "ϵ( 'Θ' )϶" do
       subject { "ϵ( 'Θ' )϶" }
-      its(:twidth) { should == 9 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 9 }
+      end
     end
 
     context 'にΟΙ' do
       subject { 'にΟΙ' }
-      its(:twidth) { should == 4 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 4 }
+      end
     end
 
     context ' ̫' do
       subject { ' ̫' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '　' do
       subject { '　' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '←' do
       subject { '←' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '¥' do
       subject { '¥' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ó' do
       subject { 'ó' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '(˶‾᷄ ⁻̫ ‾᷅˵)' do
       subject { '(˶‾᷄ ⁻̫ ‾᷅˵)' }
-      its(:twidth) { should == 9 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 9 }
+      end
     end
 
     context '╥' do
       subject { '╥' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '⊙' do
       subject { '⊙' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '(｡･ω･｡)ﾉ♡' do
       subject { '(｡･ω･｡)ﾉ♡' }
-      its(:twidth) { should == 9 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 9 }
+      end
     end
 
     context '' do
       subject { '' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '👋' do
       subject { '👋' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '↓↓' do
       subject { '↓↓' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '℃' do
       subject { '℃' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '(●✿∀✿●)' do
       subject { '(●✿∀✿●)' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context 'Д' do
       subject { 'Д' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '(´•̥̥̥ω•̥̥̥`)' do
       subject { '(´•̥̥̥ω•̥̥̥`)' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context ' ᷄' do
       subject { ' ᷄' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '‾' do
       subject { '‾' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '༼蛇精༽༄ ' do
       subject { '༼蛇精༽༄ ' }
-      its(:twidth) { should == 8 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 8 }
+      end
     end
 
     context '✌' do
       subject { '✌' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '(´Д` )' do
       subject { '(´Д` )' }
-      its(:twidth) { should == 6 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 6 }
+      end
     end
 
     context '゜∀)ノ' do
       subject { '゜∀)ノ' }
-      its(:twidth) { should == 6 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 6 }
+      end
     end
 
     context '⬇⬇⬇⬇' do
       subject { '⬇⬇⬇⬇' }
-      its(:twidth) { should == 4 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 4 }
+      end
     end
 
     context 'ヽ(#`Д´)ﾉ' do
       subject { 'ヽ(#`Д´)ﾉ' }
-      its(:twidth) { should == 9 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 9 }
+      end
     end
 
     context '～٩(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)و' do
       subject { '～٩(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)و' }
-      its(:twidth) { should == 10 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 10 }
+      end
     end
 
     context '😂' do
       subject { '😂' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '⊙▽⊙' do
       subject { '⊙▽⊙' }
-      its(:twidth) { should == 3 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 3 }
+      end
     end
 
     context '✖️✖️' do
       subject { '✖️✖️' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '☁' do
       subject { '☁' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '( ・᷄ ᵌ・᷅ )' do
       subject { '( ・᷄ ᵌ・᷅ )' }
-      its(:twidth) { should == 10 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 10 }
+      end
     end
 
     context '(☆_☆)Y(^_^)Y ♪─Ｏ（≧∇≦）Ｏ─♪' do
       subject { '(☆_☆)Y(^_^)Y ♪─Ｏ（≧∇≦）Ｏ─♪' }
-      its(:twidth) { should == 28 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 28 }
+      end
     end
 
     context '12～★ 今天新换的 (๑¯ิε ¯ิ๑）' do
       subject { '12～★ 今天新换的 (๑¯ิε ¯ิ๑）' }
-      its(:twidth) { should == 26 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 26 }
+      end
     end
 
     context '☀' do
       subject { '☀' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☀︎' do
       subject { '☀︎' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '(´･_･`)' do
       subject { '(´･_･`)' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context '୧⃛(๑⃙⃘◡̈๑⃙⃘)୨⃛' do
       subject { '୧⃛(๑⃙⃘◡̈๑⃙⃘)୨⃛' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context '❓⁉️' do
       subject { '❓⁉️' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '⬇️⬇️⬇️⬇️⬇️…🌚！！！😰😤😤' do
       subject { '⬇️⬇️⬇️⬇️⬇️…🌚！！！😰😤😤' }
-      its(:twidth) { should == 16 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 16 }
+      end
     end
 
     context '！' do
       subject { '！' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '～' do
       subject { '～' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '(˘̩̩̩ε˘̩ƪ)' do
       subject { '(˘̩̩̩ε˘̩ƪ)' }
-      its(:twidth) { should == 6 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 6 }
+      end
     end
 
     context 'ʕ •ᴥ•ʔ' do
       subject { 'ʕ •ᴥ•ʔ' }
-      its(:twidth) { should == 6 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 6 }
+      end
     end
 
     context '´●＿●`' do
       subject { '´●＿●`' }
-      its(:twidth) { should == 6 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 6 }
+      end
     end
 
     context '＿' do
       subject { '＿' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '`' do
       subject { '`' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '´' do
       subject { '´' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☆ゝ' do
       subject { '☆ゝ' }
-      its(:twidth) { should == 3 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 3 }
+      end
     end
 
     context '(͏ ˉ ꈊ ˉ)✧˖°' do
       subject { "(͏ ˉ ꈊ ˉ)✧˖°" }
-      its(:twidth) { should == 12 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 12 }
+      end
     end
 
     context '₍₍ (̨̡ ᗣ )̧̢ ₎₎' do
       subject { '₍₍ (̨̡ ᗣ )̧̢ ₎₎' }
-      its(:twidth) { should == 11 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 11 }
+      end
     end
 
     context '♚' do
       subject { '♚' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '(●°u°●)​ 」' do
       subject { '(●°u°●)​ 」' }
-      its(:twidth) { should == 11 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 11 }
+      end
     end
 
     context '」' do
       subject { '」' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '​​' do
       subject { '​' } # 8203
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ಥ_ಥ' do
       subject { 'ಥ_ಥ' }
-      its(:twidth) { should == 3 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 3 }
+      end
     end
 
     context '♪٩(´▽｀๑)۶ ' do
       subject { '♪٩(´▽｀๑)۶ ' }
-      its(:twidth) { should == 11 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 11 }
+      end
     end
 
     context 'ಠ_ಠ' do
       subject { 'ಠ_ಠ' }
-      its(:twidth) { should == 3 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 3 }
+      end
     end
 
     context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
       subject { '(ᵒ̤̑ ₀̑ ᵒ̤̑)' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context '눈_눈' do
       subject { '눈_눈' }
-      its(:twidth) { should == 5 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 5 }
+      end
     end
 
     context '' do
       subject { '' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '((((；ﾟДﾟ)))))))' do
       subject { '((((；ﾟДﾟ)))))))' }
-      its(:twidth) { should == 16 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 16 }
+      end
     end
 
     context '（∮∧∮）' do
       subject { '（∮∧∮）' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context 'ヽ(￣д￣;)ノ' do
       subject { 'ヽ(￣д￣;)ノ' }
-      its(:twidth) { should == 12 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 12 }
+      end
     end
 
     context '(Ծ‸ Ծ )' do
       subject { '(Ծ‸ Ծ )' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context '(۶ૈ ۜ ᵒ̌▱๋ᵒ̌ )۶ૈ=͟͟͞͞ ⌨' do
       subject { '(۶ૈ ۜ ᵒ̌▱๋ᵒ̌ )۶ૈ=͟͟͞͞ ⌨' }
-      its(:twidth) { should == 13 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 13 }
+      end
     end
 
     context '(๑˃̵ᴗ˂̵)و ' do
       subject { '(๑˃̵ᴗ˂̵)و ' }
-      its(:twidth) { should == 8 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 8 }
+      end
     end
 
     context '嘤ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू) ' do
       subject { '嘤ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू) ' }
-      its(:twidth) { should == 11 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 11 }
+      end
     end
 
     context '⁽⁽٩(๑˃̶͈̀  ˂̶͈́)۶⁾⁾' do
       subject { '⁽⁽٩(๑˃̶͈̀  ˂̶͈́)۶⁾⁾' }
-      its(:twidth) { should == 13 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 13 }
+      end
     end
 
     context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
       subject { '(ᵒ̤̑ ₀̑ ᵒ̤̑)' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context 'AÏcha' do
       subject { 'AÏcha' }
-      its(:twidth) { should == 5 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 5 }
+      end
     end
 
     context '(ᵒ̤̑ ₀̑ ᵒ̤̑)' do
       subject { '(ᵒ̤̑ ₀̑ ᵒ̤̑)' }
-      its(:twidth) { should == 7 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 7 }
+      end
     end
 
     context '(╯°Д°)╯︵ ┻━┻ ' do
       subject { '(╯°Д°)╯︵ ┻━┻ ' }
-      its(:twidth) { should == 14 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 14 }
+      end
     end
 
     context '┭┮﹏┭┮' do
       subject { '┭┮﹏┭┮' }
-      its(:twidth) { should == 6 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 6 }
+      end
     end
 
     context '=△=' do
       subject { '=△=' }
-      its(:twidth) { should == 3 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 3 }
+      end
     end
 
     context ' (ؓؒؒؑؑؖؔؓؒؐؐ⁼̴̀ωؘؙؖؕؔؓؒؑؐؕ⁼̴̀ )✧' do
       subject { ' (ؓؒؒؑؑؖؔؓؒؐؐ⁼̴̀ωؘؙؖؕؔؓؒؑؐؕ⁼̴̀ )✧' }
-      its(:twidth) { should == 8 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 8 }
+      end
     end
 
     context '(¦3[____]' do
       subject { '(¦3[____]' }
-      its(:twidth) { should == 9 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 9 }
+      end
     end
 
     context '( •̥́ ˍ •̀ू )' do
       subject { '( •̥́ ˍ •̀ू )' }
-      its(:twidth) { should == 9 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 9 }
+      end
     end
 
     context 'Σ（ﾟдﾟlll） ' do
       subject { 'Σ（ﾟдﾟlll） ' }
-      its(:twidth) { should == 12 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 12 }
+      end
     end
 
     context '☁︎' do
       subject { '☁︎' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '▀ ▄ ‖ █ ‖▌‖' do
       subject { '▀ ▄ ‖ █ ‖▌‖' }
-      its(:twidth) { should == 11 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 11 }
+      end
     end
 
     context 'にこにー♡' do
       subject { 'にこにー♡' }
-      its(:twidth) { should == 9 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 9 }
+      end
     end
 
     context 'Наташа' do
       subject { 'Наташа' }
-      its(:twidth) { should == 6 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 6 }
+      end
     end
 
     context '(╯°□°）╯︵' do
       subject { '(╯°□°）╯︵' }
-      its(:twidth) { should == 10 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 10 }
+      end
     end
 
     context 'Facebig(((o(*ﾟ▽ﾟ*)o)))' do
       subject { 'Facebig(((o(*ﾟ▽ﾟ*)o)))' }
-      its(:twidth) { should == 22 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 22 }
+      end
     end
 
     context '♥' do
       subject { '♥' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '❥' do
       subject { '❥' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '❀' do
       subject { '❀' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '∩' do
       subject { '∩' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '╳' do
       subject { '╳' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '❄️' do
       subject { '❄️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '❦' do
       subject { '❦' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '✌️' do
       subject { '✌️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '✘' do
       subject { '✘' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '×' do
       subject { '×' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '♨️' do
       subject { '♨️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '✪' do
       subject { '✪' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☂' do
       subject { '☂' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '6⃣' do
       subject { '6⃣' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '▼' do
       subject { '▼' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '˚' do
       subject { '˚' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '₊' do
       subject { '₊' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '♻️' do
       subject { '♻️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '♒️' do
       subject { '♒️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '±' do
       subject { '±' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '✏' do
       subject { '✏' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '∪' do
       subject { '∪' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '♬' do
       subject { '♬' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☜☞' do
       subject { '☜☞' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context '' do
       subject { '' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '✏️' do
       subject { '✏️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '┐' do
       subject { '┐' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '┌' do
       subject { '┌' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '🇨🇳' do
       subject { '🇨🇳' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '' do
       subject { '' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '✔' do
       subject { '✔' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ฅ' do
       subject { 'ฅ' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '○' do
       subject { '○' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '′' do
       subject { '′' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☁️' do
       subject { '☁️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ℕᏐᎶℍᎢ' do
       subject { 'ℕᏐᎶℍᎢ' }
-      its(:twidth) { should == 5 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 5 }
+      end
     end
 
     context '✈️' do
       subject { '✈️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☀️' do
       subject { '☀️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ಠ' do
       subject { 'ಠ' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ರೃ' do
       subject { 'ರೃ' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context 'ä' do
       subject { 'ä' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '♥️' do
       subject { '♥️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '❶' do
       subject { '❶' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '☘' do
       subject { '☘' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '⚡️' do
       subject { '⚡️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '✔️' do
       subject { '✔️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '🇰🇷' do
       subject { '🇰🇷' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ã' do
       subject { 'ã' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '✔' do
       subject { '✔' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '⌛️' do
       subject { '⌛️' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '♂' do
       subject { '♂' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ｪ' do
       subject { 'ｪ' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context '㊙️' do
       subject { '㊙️' }
-      its(:twidth) { should == 2 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 2 }
+      end
     end
 
     context 'Ⅱ' do
       subject { 'Ⅱ' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'à' do
       subject { 'à' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
 
     context 'ö' do
       subject { 'ö' }
-      its(:twidth) { should == 1 }
+
+      describe '#twidth' do
+        subject { super().twidth }
+        it { should == 1 }
+      end
     end
   end
 end
