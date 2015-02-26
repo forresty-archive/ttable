@@ -4,7 +4,7 @@ require "gemoji"
 
 class String
   CHAR_CODES_OF_WIDTH_1 = [1608, 1641, 1782, 3232,
-                           3237, 3248, 3267, 3589, 3665, 3844, 3900, 3901, 5026, 5046, 5072, 5603,
+                           3237, 3248, 3267, 3589, 3665, 3844, 5026, 5046, 5072, 5603,
                            5608, 7447, 7461, 7500, 7506, 8198, 8203, 8451, 8461, 8469, 8545, 9000, 9166,
                            11015, 57643, 58141, 58370, 58381,
                            58387]
@@ -136,6 +136,12 @@ class String
         result += 0
       when (0xE48..0xE4B) # Tone marks
         result += 0
+
+      # http://www.unicode.org/charts/PDF/U0F00.pdf
+      # Tibetan
+      # Range: 0F00–0FFF
+      when (0xF3A..0xF47)
+        result += 1
 
       # http://www.unicode.org/charts/PDF/UFF00.pdf
       # Halfwidth and Fullwidth Forms
