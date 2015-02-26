@@ -3,7 +3,6 @@
 require "gemoji"
 
 class String
-  CHARS_OF_WIDTH_OF_2 = %w{ }
   CHARS_OF_WIDTH_OF_1 = %w{ ě ì • é · ♪ … ω ˊ ˋ √ “ ” ☻ ※ ◎ ◆ ‘ ★ ’ — ° ʖ ¯ ≥ ≤
     ≧ ∇ ≦  ❤ ☺ ╭ ╯ ε ╰ ╮ з ∠ → ë ϵ Θ ϶ Ο Ι ⏎ ← ¥ ó ˶ ˵ ╥ ⊙ ☁ ▽ ⬇ ✌ ‾ ♚ ☀ ℃ Д
     ↓  ● ´ ☆ ･ _ ᵌ ∀ ﾉ Н а т ш △  ಠ ಥ ʕ ʔ ᴥ ୧ ◡ ୨ ๑ ƪ ˘ ₀ ᵒ ٩ ۶ ∮ ∧ ʚ Ծ ‸ Ï ♡
@@ -14,7 +13,7 @@ class String
                            809, 811, 820, 821, 822, 823, 840, 847, 860, 862, 863, 865,
                            1552, 1553, 1554, 1555, 1556, 1557, 1558, 1560, 1561, 1756,
                            2370, 2760, 3267, 3636, 3659, 7620, 7621, 8408, 8409, 8411]
-  CHAR_CODES_OF_WIDTH_1 = %w{ 8203 65439 }
+  CHAR_CODES_OF_WIDTH_1 = [8203, 65439]
 
   MULTI_CHAR_OF_WIDTH_1 = %w{ ☺️ ❤️ ♍️ ☔️ ‾᷄ ‾᷅ ⁻̫ ✖️ 😂 ☀︎ ❓ ⁉️ ☁︎ ⬇️ ❄️ ✌️ ♨️ 6⃣ ♻️ ♒️
     ✏️ 🇨🇳 ☁️ ✈️ ☀️ ♥️ ⚡️ ✔️ 🇰🇷 ⌛️ }
@@ -43,13 +42,11 @@ class String
       elsif CHAR_CODES_OF_WIDTH_0.find { |code| c.ord == code }
         # zero width
         result += 0
-      elsif CHAR_CODES_OF_WIDTH_1.find { |code| c.ord.to_s == code }
+      elsif CHAR_CODES_OF_WIDTH_1.find { |code| c.ord == code }
         # zero width
         result += 1
       elsif CHARS_OF_WIDTH_OF_1.include?(c)
         result += 1
-      elsif CHARS_OF_WIDTH_OF_2.include?(c)
-        result += 2
       elsif c == ' ' # ord == 8198
         result += 1
       elsif Emoji.find_by_unicode(c)
