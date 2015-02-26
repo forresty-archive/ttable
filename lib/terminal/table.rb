@@ -69,7 +69,9 @@ class String
         result += 1
 
       # http://www.unicode.org/charts/PDF/UFF00.pdf
-      when (0xFF01..0xFF60) # Fullwidth ASCII variants && Fullwidth brackets
+      when (0xFF01..0xFF5E) # Fullwidth ASCII variants
+        result += 2
+      when (0xFF5F..0xFF60) # Fullwidth brackets
         result += 2
       when (0xFF61..0xFF64) # Halfwidth CJK punctuation
         result += 1
