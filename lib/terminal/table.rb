@@ -69,6 +69,8 @@ class String
         result += 1
 
       # http://www.unicode.org/charts/PDF/UFF00.pdf
+      # Halfwidth and Fullwidth Forms
+      # Range: FF00–FFEF
       when (0xFF01..0xFF5E) # Fullwidth ASCII variants
         result += 2
       when (0xFF5F..0xFF60) # Fullwidth brackets
@@ -78,6 +80,10 @@ class String
       when (0xFF65..0xFF9F) # Halfwidth Katakana variants
         result += 1
       when (0xFFA0..0xFFDC) # Halfwidth Hangul variants
+        result += 1
+      when (0xFFE0..0xFFE6) # Fullwidth symbol variants
+        result += 2
+      when (0xFFE8..0xFFEE) # Halfwidth symbol variants
         result += 1
 
       when *CHAR_CODES_OF_WIDTH_0
