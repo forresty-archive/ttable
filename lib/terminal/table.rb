@@ -3,7 +3,7 @@
 require "gemoji"
 
 class String
-  CHAR_CODES_OF_WIDTH_0 = [7620, 7621, 8408, 8409, 8411]
+  CHAR_CODES_OF_WIDTH_0 = [8408, 8409, 8411]
 
   CHAR_CODES_OF_WIDTH_1 = [706, 707, 713, 714, 715, 717, 726, 728, 730, 757, 758, 920,
                            921, 927, 931, 949, 969, 1013, 1014, 1044, 1053, 1072, 1076,
@@ -67,6 +67,8 @@ class String
       when (0x250..0x2AF) # IPA Extensions
         result += 1
       when (0x300..0x36F) # Combining Diacritical Marks
+        result += 0
+      when (0x1DC0..0x1DFF) # Combining Diacritical Marks Supplement
         result += 0
 
       # http://www.unicode.org/charts/PDF/U0600.pdf
