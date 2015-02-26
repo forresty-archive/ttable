@@ -55,7 +55,6 @@ class String
         # zero width
         result += 0
       elsif CHAR_CODES_OF_WIDTH_1.find { |code| c.ord == code }
-        # zero width
         result += 1
       elsif c == ' ' # ord == 8198
         result += 1
