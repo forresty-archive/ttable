@@ -48,16 +48,16 @@ class String
     end
 
     chars.inject(result) do |result, c|
-      if c.ord <= 0x7F # Basic Latin
+      case c.ord
+      when (0..0x7F) # Basic Latin
         result += 1
-      elsif c.ord <= 0x17F # Latin-1 Supplement
+      when (0..0x17F) # Latin-1 Supplement
         result += 1
-      elsif CHAR_CODES_OF_WIDTH_0.find { |code| c.ord == code }
-        # zero width
+      when *CHAR_CODES_OF_WIDTH_0
         result += 0
-      elsif CHAR_CODES_OF_WIDTH_1.find { |code| c.ord == code }
+      when *CHAR_CODES_OF_WIDTH_1
         result += 1
-      elsif Emoji.find_by_unicode(c)
+      when lambda { |ord| Emoji.find_by_unicode([ord].pack('U*')) }
         result += 1
       else
         result += 2
