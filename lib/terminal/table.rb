@@ -59,6 +59,10 @@ class String
         result += 1
       when (0x2C60..0x2C7F) # Latin Extended-C
         result += 1
+      when (0xA720..0xA7FF) # Latin Extended-D
+        result += 1
+      when (0xAB30..0xAB6F) # Latin Extended-E
+        result += 1
       when *CHAR_CODES_OF_WIDTH_0
         result += 0
       when *CHAR_CODES_OF_WIDTH_1
